@@ -10,7 +10,7 @@ class Recipe with _$Recipe {
     required String foodTitle,
     required String creator,
     required int time,
-    required String rating,
+    required double rating,
     required String imagePath,
   }) = _Recipe;
 
