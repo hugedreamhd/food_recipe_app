@@ -1,5 +1,5 @@
 import '../model/recipe.dart';
 
-abstract interface class FoodRepository {
+abstract interface class RecipeRepository {
   Future<List<Recipe>> fetchFood();
 }
