@@ -15,6 +15,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 1;
 
+  //RecipeRepository 타입의 _repository 변수가 RecipeRepositoryImpl 인스턴스를 참조
+  final RecipeRepository _repository = RecipeRepositoryImpl();
+
 
   @override
   Widget build(BuildContext context) {
