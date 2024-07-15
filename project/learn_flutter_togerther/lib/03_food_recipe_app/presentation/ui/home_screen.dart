@@ -18,6 +18,10 @@ class _HomeScreenState extends State<HomeScreen> {
   //RecipeRepository 타입의 _repository 변수가 RecipeRepositoryImpl 인스턴스를 참조
   final RecipeRepository _repository = RecipeRepositoryImpl();
 
+  Future<Result<List<Recipe>, RecipeRepositoryError>> _fetchRecipe() {
+    return _repository.fetchRecipe();
+  }
+
 
   @override
   Widget build(BuildContext context) {
