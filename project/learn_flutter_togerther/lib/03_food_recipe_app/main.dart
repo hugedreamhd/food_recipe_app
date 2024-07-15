@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'presentation/ui/home_screen.dart';
+
 class RecipeApp extends StatelessWidget {
   const RecipeApp({super.key});
 
@@ -13,4 +15,8 @@ class RecipeApp extends StatelessWidget {
       ),
     );
   }
+}
+
+void main() {
+  runApp(const RecipeApp());
 }
