@@ -6,7 +6,7 @@ import 'package:learn_flutter_togerther/03_food_recipe_app/repository/recipe_rep
 import 'package:learn_flutter_togerther/03_food_recipe_app/repository/recipe_repository_impl.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, required repository});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -49,17 +49,10 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
   ];
 
-  //RecipeRepository 타입의 _repository 변수가 RecipeRepositoryImpl 인스턴스를 참조
-  // final RecipeRepository _repository = RecipeRepositoryImpl();
-  //
-  // Future<Result<List<Recipe>, RecipeRepositoryError>> _fetchRecipe() {
-  //   return _repository.fetchRecipe();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: <Widget>[
+      body: [
         Center(
           child: Text('Home'),
         ),
