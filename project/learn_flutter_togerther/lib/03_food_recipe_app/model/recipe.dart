@@ -9,7 +9,7 @@ class Recipe with _$Recipe {
   const factory Recipe({
     required String foodTitle,
     required String creator,
-    required int time,
+    required String time,
     required double rating,
     required String imagePath,
   }) = _Recipe;
