@@ -12,7 +12,7 @@ final List<Recipe> _recipes = [
   const Recipe(
     foodTitle: 'Traditional spare ribs baked',
     creator: 'By Chef John',
-    time: 20,
+    time: '20 min',
     rating: 4.0,
     imagePath:
         'https://cdn.pixabay.com/photo/2022/08/25/17/42/spare-ribs-7410914_1280.jpg',
@@ -22,7 +22,7 @@ final List<Recipe> _recipes = [
     imagePath:
         'https://cdn.pixabay.com/photo/2022/06/07/21/00/chicken-7249273_1280.jpg',
     creator: 'Mark Kelvin',
-    time: 20,
+    time: '20 min',
     rating: 4.0,
   ),
   const Recipe(
@@ -30,7 +30,7 @@ final List<Recipe> _recipes = [
     imagePath:
         'https://cdn.pixabay.com/photo/2021/01/16/09/05/meal-5921491_1280.jpg',
     creator: 'Spicy Nelly',
-    time: 20,
+    time: '20 min',
     rating: 4.0,
   ),
   const Recipe(
@@ -38,7 +38,7 @@ final List<Recipe> _recipes = [
     imagePath:
         'https://cdn.pixabay.com/photo/2018/08/29/19/03/steak-3640560_1280.jpg',
     creator: 'elden shadler',
-    time: 30,
+    time: '30 min',
     rating: 5.0,
   )
 ];
