@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter_togerther/02_material_design/presentation/ui/text_styles.dart';
-import 'package:learn_flutter_togerther/03_food_recipe_app/core/result.dart';
-import 'package:learn_flutter_togerther/03_food_recipe_app/model/recipe.dart';
-import 'package:learn_flutter_togerther/03_food_recipe_app/repository/recipe_repository.dart';
+import 'package:learn_flutter_togerther/03_food_recipe_app/data/recipe_data_source.dart';
+import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/home/saved_recipe_view.dart';
 import 'package:learn_flutter_togerther/03_food_recipe_app/repository/recipe_repository_impl.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required repository});
+  final RecipeRepositoryImpl repository;
+
+  const HomeScreen({
+    super.key,
+    required this.repository,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -56,9 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Center(
           child: Text('Home'),
         ),
-        Center(
-          child: Text('Bookmark'),
-        ),
+        SavedRecipeView(repository: widget.repository),
         Center(
           child: Text('Notification'),
         ),
