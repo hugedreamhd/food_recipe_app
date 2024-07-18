@@ -48,7 +48,7 @@ class SignUpScreen extends StatelessWidget {
               height: 20,
             ),
             Text(
-              'Forgot Password?',
+              '  Forgot Password?',
               style: TextStyles.smallerTextRegular.copyWith(
                 color: ColorStyles.secondary100,
               ),

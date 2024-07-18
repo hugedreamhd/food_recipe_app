@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter_togerther/03_food_recipe_app/data/recipe_data_source.dart';
+import 'package:go_router/go_router.dart';
 import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/home/saved_recipe_view.dart';
 import 'package:learn_flutter_togerther/03_food_recipe_app/repository/recipe_repository_impl.dart';
 
@@ -19,9 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentPageIndex = 0;
 
   NavigationDestinationLabelBehavior labelBehavior =
-      NavigationDestinationLabelBehavior.onlyShowSelected;
+      NavigationDestinationLabelBehavior.alwaysHide;
 
-  final navi_destinaion = [
+  final destinaion = [
     NavigationDestination(
       icon: Image.asset('asset/images/inactive_home.png'),
       selectedIcon: Image.asset(
@@ -57,7 +57,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: [
         Center(
-          child: Text('Home'),
+          child: InkWell(
+            onTap: () => context.go('/'),
+            child: Text('Home comming'),
+          ),
         ),
         SavedRecipeView(repository: widget.repository),
         Center(
@@ -73,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
         overlayColor: WidgetStateProperty.all(Colors.transparent),
         labelBehavior: labelBehavior,
         selectedIndex: _currentPageIndex,
-        destinations: navi_destinaion,
+        destinations: destinaion,
         onDestinationSelected: (int index) {
           setState(() {
             _currentPageIndex = index;

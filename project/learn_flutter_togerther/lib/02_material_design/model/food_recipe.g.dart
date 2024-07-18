@@ -8,14 +8,18 @@ part of 'food_recipe.dart';
 
 _$FoodRecipeImpl _$$FoodRecipeImplFromJson(Map<String, dynamic> json) =>
     _$FoodRecipeImpl(
-      title: json['title'] as String,
-      email: json['email'] as String,
-      password: json['password'] as String,
+      foodTitle: json['foodTitle'] as String,
+      creator: json['creator'] as String,
+      time: (json['time'] as num).toInt(),
+      rating: (json['rating'] as num).toDouble(),
+      imagePath: json['imagePath'] as String,
     );
 
 Map<String, dynamic> _$$FoodRecipeImplToJson(_$FoodRecipeImpl instance) =>
     <String, dynamic>{
-      'title': instance.title,
-      'email': instance.email,
-      'password': instance.password,
+      'foodTitle': instance.foodTitle,
+      'creator': instance.creator,
+      'time': instance.time,
+      'rating': instance.rating,
+      'imagePath': instance.imagePath,
     };
