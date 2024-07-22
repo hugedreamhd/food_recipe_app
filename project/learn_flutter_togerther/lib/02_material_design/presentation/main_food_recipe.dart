@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'component/sign_up/sign_up_screen.dart';
+import '../../03_food_recipe_app/presentation/sing_up/sign_up_screen.dart';
 
 class MainFoodRecipe extends StatelessWidget {
   const MainFoodRecipe({super.key});
