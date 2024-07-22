@@ -39,7 +39,7 @@ class RecipeCard extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [Colors.transparent, Colors.black87],
@@ -48,21 +48,7 @@ class RecipeCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 335.0,
-            right: 20.0,
-            top: 20.0,
-            bottom: 170,
-            child: Container(
-              height: 10,
-              width: 20,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: ColorStyles.primary20,
-              ),
-            ),
-          ),
-          Positioned(
-            left: 335.0,
+            left: 280.0,
             right: 20.0,
             top: 20.0,
             bottom: 170,
@@ -79,12 +65,12 @@ class RecipeCard extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.star,
                       color: ColorStyles.secondary80,
                       size: 15.0,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     Text('${recipe.rating}'),
