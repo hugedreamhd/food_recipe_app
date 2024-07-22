@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/home/saved_recipe_view.dart';
-import 'package:learn_flutter_togerther/03_food_recipe_app/repository/recipe_repository_impl.dart';
+import '../../repository/recipe_repository.dart';
 
 class HomeScreen extends StatefulWidget {
-  final RecipeRepositoryImpl repository;
+  final RecipeRepository repository;
 
   const HomeScreen({
     super.key,
