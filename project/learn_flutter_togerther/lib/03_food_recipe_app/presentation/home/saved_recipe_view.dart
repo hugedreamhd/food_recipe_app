@@ -29,26 +29,28 @@ class SavedRecipeView extends StatelessWidget {
           ),
           Expanded(
             child: FutureBuilder(
-                future: repository.fetchRecipe(),
-                builder: (BuildContext context,
-                    AsyncSnapshot<Result<List<Recipe>>> snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
+              future: repository.fetchRecipe(),
+              builder: (BuildContext context,
+                  AsyncSnapshot<Result<List<Recipe>>> snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                final result = snapshot.data!;
+                switch (result) {
+                  case Success<List<Recipe>>():
+                    return ListView(
+                      padding: EdgeInsets.zero,
+                      children: result.data
+                          .map((e) => RecipeCard(recipe: e))
+                          .toList(),
                     );
-                  }
-                  final result = snapshot.data!;
-                  switch (result) {
-                    case Success<List<Recipe>>():
-                      return ListView(
-                        padding: EdgeInsets.zero,
-                        children:
-                        result.data.map((e) => RecipeCard(recipe: e)).toList(),
-                      );
-                    case Error<List<Recipe>>():
-                      return Text(result.e);
-                  }
-                },),
+                  case Error<List<Recipe>>():
+                    return Text(result.e);
+                }
+              },
+            ),
           ),
         ],
       ),
