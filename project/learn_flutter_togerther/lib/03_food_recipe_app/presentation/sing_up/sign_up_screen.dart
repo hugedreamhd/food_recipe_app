@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/component/big_button.dart';
 import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/component/input_text.dart';
+import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/component/sns_login_items.dart';
 import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/ui/color_styles.dart';
+import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/ui/text_styles.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -82,7 +86,93 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         color: ColorStyles.secondary100,
                       ),
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
                   ],
+                ),
+                BigButton(
+                  title: 'Sign Up',
+                  onTap: () {
+                    context.go('/sign_in');
+                  },
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 48.0, right: 48.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+                          color: ColorStyles.gray4,
+                          height: 1.0,
+                          width: double.infinity,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 2,
+                      ),
+                      const Expanded(
+                        flex: 2,
+                        child: Text(
+                          textAlign: TextAlign.center,
+                          'Or Sign in With',
+                          style: TextStyle(
+                            color: ColorStyles.gray4,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 2,
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+                          color: ColorStyles.gray4,
+                          height: 1.0,
+                          width: double.infinity,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const SnsLoginItems(),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Already a member?',
+                        style: TextStyles.smallerTextBold.copyWith(
+                          color: ColorStyles.black,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          context.go('/sign_up');
+                        },
+                        child: Text(
+                          'Sign up',
+                          style: TextStyles.smallerTextBold.copyWith(
+                            color: ColorStyles.secondary100,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
