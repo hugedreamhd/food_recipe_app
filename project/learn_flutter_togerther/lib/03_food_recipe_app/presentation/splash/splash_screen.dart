@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter_togerther/02_material_design/presentation/component/big_button.dart';
+import 'package:go_router/go_router.dart';
+import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/component/big_button.dart';
 import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/ui/color_styles.dart';
 import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/ui/text_styles.dart';
 
@@ -64,7 +65,9 @@ class SplashScreen extends StatelessWidget {
                       margin: EdgeInsets.only(left: 25, right: 25),
                       child: BigButton(
                         title: 'Start Cooking',
-                        onTap: () {},
+                        onTap: () {
+                          context.go('/sign_in');
+                        },
                       ),
                     )
                   ],
