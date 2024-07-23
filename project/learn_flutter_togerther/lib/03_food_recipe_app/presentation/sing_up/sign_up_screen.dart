@@ -94,7 +94,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 BigButton(
                   title: 'Sign Up',
                   onTap: () {
-                    context.go('/sign_in');
+                    context.go('/home_screen');
                   },
                 ),
                 const SizedBox(
@@ -160,12 +160,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       const SizedBox(
                         width: 5,
                       ),
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
-                          context.go('/sign_up');
+                          context.go('/sign_in');
                         },
                         child: Text(
-                          'Sign up',
+                          'Sign in',
                           style: TextStyles.smallerTextBold.copyWith(
                             color: ColorStyles.secondary100,
                           ),
