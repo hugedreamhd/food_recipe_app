@@ -160,7 +160,7 @@ class RecipeCard extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
