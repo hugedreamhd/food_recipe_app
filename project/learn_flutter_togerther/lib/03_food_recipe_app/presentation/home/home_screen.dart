@@ -1,87 +1,57 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/home/saved_recipe_view.dart';
-import '../../repository/recipe_repository.dart';
+import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/component/filtering_icon.dart';
+import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/component/input_text.dart';
+import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/component/search_input_layout.dart';
+import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/ui/color_styles.dart';
+import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/ui/text_styles.dart';
 
-class HomeScreen extends StatefulWidget {
-  final RecipeRepository repository;
-
-  const HomeScreen({
-    super.key,
-    required this.repository,
-  });
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  int _currentPageIndex = 0;
-
-  NavigationDestinationLabelBehavior labelBehavior =
-      NavigationDestinationLabelBehavior.alwaysHide;
-
-  final destinaion = [
-    NavigationDestination(
-      icon: Image.asset('asset/images/inactive_home.png'),
-      selectedIcon: Image.asset(
-        'asset/images/active_home.png',
-      ),
-      label: 'home',
-    ),
-    NavigationDestination(
-      icon: Image.asset('asset/images/inactive_bookmark.png'),
-      selectedIcon: Image.asset(
-        'asset/images/active_bookmark.png',
-      ),
-      label: 'bookmark',
-    ),
-    NavigationDestination(
-      icon: Image.asset('asset/images/inactive_notification.png'),
-      selectedIcon: Image.asset(
-        'asset/images/active_notification.png',
-      ),
-      label: 'notification',
-    ),
-    NavigationDestination(
-      icon: Image.asset('asset/images/inactive_profile.png'),
-      selectedIcon: Image.asset(
-        'asset/images/active_profile.png',
-      ),
-      label: 'notification',
-    ),
-  ];
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: [
-        Center(
-          child: InkWell(
-            onTap: () => context.go('/'),
-            child: Text('Home comming'),
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                'Hello Jega',
+                style: TextStyles.largeTextBold,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                'What are you cooking today?',
+                style: TextStyles.smallTextRegular.copyWith(
+                  color: ColorStyles.gray4,
+                ),
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: SearchInputLayout(
+                      inputSearch: 'Search recipe',
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  FilteringIcon(),
+                ],
+              ),
+            ],
           ),
         ),
-        SavedRecipeView(repository: widget.repository),
-        Center(
-          child: Text('Notification'),
-        ),
-        Center(
-          child: Text('Profile'),
-        ),
-      ][_currentPageIndex],
-      bottomNavigationBar: NavigationBar(
-        backgroundColor: Colors.white,
-        height: 60,
-        overlayColor: WidgetStateProperty.all(Colors.transparent),
-        labelBehavior: labelBehavior,
-        selectedIndex: _currentPageIndex,
-        destinations: destinaion,
-        onDestinationSelected: (int index) {
-          setState(() {
-            _currentPageIndex = index;
-          });
-        },
       ),
     );
   }
