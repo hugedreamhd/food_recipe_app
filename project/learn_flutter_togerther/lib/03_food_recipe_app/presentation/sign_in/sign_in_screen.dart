@@ -29,23 +29,17 @@ class SignInScreen extends StatelessWidget {
                 const SizedBox(
                   height: 40,
                 ),
-                Container(
-                  child: const InputTextField(
-                    inputTitle: 'Email',
-                    hintText: 'Enter Email',
-                  ),
+                const InputTextField(
+                  inputTitle: 'Email',
+                  hintText: 'Enter Email',
                 ),
                 const SizedBox(
-                  height: 40,
+                  height: 30,
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Container(
-                    child: const InputTextField(
+                const InputTextField(
                   inputTitle: 'Enter Password',
                   hintText: 'Enter password',
-                )),
+                ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -103,9 +97,12 @@ class SignInScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 const SnsLoginItems(),
+                const SizedBox(
+                  height: 40,
+                ),
                 Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
