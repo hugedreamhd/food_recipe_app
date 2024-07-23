@@ -48,7 +48,7 @@ class RecipeCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 280.0,
+            left: 290.0,
             right: 20.0,
             top: 20.0,
             bottom: 170,
@@ -56,8 +56,8 @@ class RecipeCard extends StatelessWidget {
               height: 10,
               width: 20,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: ColorStyles.secondary40,
+                borderRadius: BorderRadius.circular(20),
+                color: ColorStyles.secondary20,
               ),
               child: SizedBox(
                 height: 20,
@@ -71,9 +71,10 @@ class RecipeCard extends StatelessWidget {
                       size: 15.0,
                     ),
                     const SizedBox(
-                      width: 5,
+                      width: 2,
                     ),
-                    Text('${recipe.rating}'),
+                    Text(
+                        style: TextStyles.smallTextRegular, '${recipe.rating}'),
                   ],
                 ),
               ),
@@ -104,6 +105,62 @@ class RecipeCard extends StatelessWidget {
               ),
             ),
           ),
+          Positioned(
+            right: 50,
+            bottom: 20,
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Image.asset(
+                      'asset/images/timer.png',
+                      height: 18,
+                      width: 18,
+                      color: Colors.white,
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      recipe.time,
+                      style: TextStyles.smallTextRegular
+                          .copyWith(color: Colors.white),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            right: 25,
+            bottom: 20,
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      height: 25,
+                      width: 25,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                      ),
+                      child: Image.asset(
+                        'asset/images/nactive_icon.png',
+                        height: 17,
+                        width: 17,
+                        color: ColorStyles.success,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
