@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class CreatorProfileItem extends StatelessWidget {
   const CreatorProfileItem({super.key});
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:learn_flutter_togerther/02_material_design/presentation/ui/color_styles.dart';
-import 'package:learn_flutter_togerther/02_material_design/presentation/ui/text_styles.dart';
-
+import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/ui/color_styles.dart';
+import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/ui/text_styles.dart';
 class InputTextField extends StatefulWidget {
   //data
   final String inputTitle;
