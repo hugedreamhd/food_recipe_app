@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/component/big_button.dart';
 import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/component/input_text.dart';
 import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/component/sns_login_items.dart';
@@ -52,7 +53,10 @@ class SignInScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                BigButton(title: 'Sign In', onTap: () {}),
+                BigButton(
+                  title: 'Sign In',
+                  onTap: () {},
+                ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -116,10 +120,15 @@ class SignInScreen extends StatelessWidget {
                       const SizedBox(
                         width: 5,
                       ),
-                      Text(
-                        'Sign up',
-                        style: TextStyles.smallerTextBold.copyWith(
-                          color: ColorStyles.secondary100,
+                      GestureDetector(
+                        onTap: () {
+                          context.go('/sign_up');
+                        },
+                        child: Text(
+                          'Sign up',
+                          style: TextStyles.smallerTextBold.copyWith(
+                            color: ColorStyles.secondary100,
+                          ),
                         ),
                       ),
                     ],
