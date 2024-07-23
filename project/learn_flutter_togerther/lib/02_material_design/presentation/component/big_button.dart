@@ -41,7 +41,7 @@ class _BigButtonState extends State<BigButton> {
         height: 70,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: _isPressed ? ColorStyles.gray4 : ColorStyles.primary100,
+          color: _isPressed ? ColorStyles.gray4 : ColorStyles.primary100
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -55,7 +55,7 @@ class _BigButtonState extends State<BigButton> {
               ),
             ),
             SizedBox(
-              width: 40,
+              width: 20,
             ),
             Icon(
               Icons.arrow_forward,
