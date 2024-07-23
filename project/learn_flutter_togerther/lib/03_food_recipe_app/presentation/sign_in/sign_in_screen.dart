@@ -4,6 +4,7 @@ import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/componen
 import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/component/sns_login_items.dart';
 import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/ui/color_styles.dart';
 import 'package:learn_flutter_togerther/03_food_recipe_app/presentation/ui/text_styles.dart';
+
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
 
@@ -29,7 +30,7 @@ class SignInScreen extends StatelessWidget {
                   height: 40,
                 ),
                 Container(
-                  child: InputTextField(
+                  child: const InputTextField(
                     inputTitle: 'Email',
                     hintText: 'Enter Email',
                   ),
@@ -41,7 +42,7 @@ class SignInScreen extends StatelessWidget {
                   height: 10,
                 ),
                 Container(
-                    child: InputTextField(
+                    child: const InputTextField(
                   inputTitle: 'Enter Password',
                   hintText: 'Enter password',
                 )),
@@ -61,24 +62,45 @@ class SignInScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 3.0,
-                      color: Colors.grey[300],
-                    ),
-                    const Text(
-                      ' Or Sign in With ',
-                      style: TextStyle(
-                        color: ColorStyles.gray4,
+                Padding(
+                  padding: const EdgeInsets.only(left: 48.0, right: 48.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+                          color: ColorStyles.gray4,
+                          height: 1.0,
+                          width: double.infinity,
+                        ),
                       ),
-                    ),
-                    Container(
-                      height: 3.0,
-                      color: Colors.grey[300],
-                    ),
-                  ],
+                      const SizedBox(
+                        width: 2,
+                      ),
+                      const Expanded(
+                        flex: 2,
+                        child: Text(
+                          textAlign: TextAlign.center,
+                          'Or Sign in With',
+                          style: TextStyle(
+                            color: ColorStyles.gray4,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 2,
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+                          color: ColorStyles.gray4,
+                          height: 1.0,
+                          width: double.infinity,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
@@ -90,17 +112,17 @@ class SignInScreen extends StatelessWidget {
                     children: [
                       Text(
                         '''Don't have an account?''',
-                        style: TextStyles.smallerTextRegular.copyWith(
-                          color: ColorStyles.primary100,
+                        style: TextStyles.smallerTextBold.copyWith(
+                          color: ColorStyles.black,
                         ),
                       ),
-                      SizedBox(
-                        width: 10,
+                      const SizedBox(
+                        width: 5,
                       ),
                       Text(
                         'Sign up',
-                        style: TextStyles.smallerTextRegular.copyWith(
-                          color: ColorStyles.primary100,
+                        style: TextStyles.smallerTextBold.copyWith(
+                          color: ColorStyles.secondary100,
                         ),
                       ),
                     ],
