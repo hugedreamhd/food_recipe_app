@@ -18,4 +18,20 @@ class SearchRecipesView with ChangeNotifier {
   bool _isLoading = false;
 
   bool get isLoading => _isLoading;
+
+  void fetchRecipe() async {
+    _isLoading = true;
+    notifyListeners();
+
+    final result = await repository.fetchRecipe();
+    switch (result) {
+      case Success<List<Recipe>>():
+        _recipe = result.data;
+        _isLoading = false;
+        notifyListeners();
+
+      case Error<List<Recipe>>():
+        print(result.e);
+    }
+  }
 }
