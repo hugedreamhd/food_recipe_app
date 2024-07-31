@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipe_app/03_food_recipe_app/presentation/ui/text_styles.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/search_recipes_view/search_recipes_view.dart';
 
-import '../presentation/component/filtering_icon.dart';
-import '../presentation/component/search_input_layout.dart';
+import '../component/filtering_icon.dart';
+import '../component/search_input_layout.dart';
+import '../ui/text_styles.dart';
 
-class SearchRecipesScreen extends StatelessWidget {
-  const SearchRecipesScreen({super.key});
+class SearchRecipesScreen extends StatefulWidget {
+  const SearchRecipesScreen({
+    super.key,
+  });
 
+  @override
+  State<SearchRecipesScreen> createState() => _SearchRecipesScreenState();
+}
+
+class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,8 +47,10 @@ class SearchRecipesScreen extends StatelessWidget {
               child: Text(
                 'Recent Search',
                 style: TextStyles.mediumTextBold,
-
               ),
+            ),
+            SizedBox(
+              height: 16,
             ),
           ],
         ),

@@ -6,8 +6,8 @@ import 'package:food_recipe_app/03_food_recipe_app/presentation/sign_in/sign_in_
 import 'package:food_recipe_app/03_food_recipe_app/presentation/sing_up/sign_up_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/splash/splash_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/repository/recipe_repository_impl.dart';
-import 'package:food_recipe_app/03_food_recipe_app/search_recipes_view/search_recipes_screen.dart';
 import 'package:go_router/go_router.dart';
+import '../presentation/search_recipes_view/search_recipes_screen.dart';
 
 final router = GoRouter(
   initialLocation: '/',
