@@ -6,8 +6,17 @@ class SearchRecipesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('searchRecipes'),
+      appBar: AppBar(
+        title: Text('Search recipes'),
+        centerTitle: true,
+      ),
+      body: Column(
+        children: [
+
+          Center(
+            child: Text('searchRecipes'),
+          ),
+        ],
       ),
     );
   }
