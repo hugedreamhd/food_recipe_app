@@ -22,7 +22,7 @@ class SearchInputLayout extends StatelessWidget {
           Expanded(
             child: InkWell(
               onTap: () {
-                context.go('/search_recipes');
+                context.push('/search_recipes');
               },
               child: Container(
                 height: 40,
