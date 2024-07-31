@@ -43,6 +43,8 @@ class SearchRecipesView with ChangeNotifier {
               .where((e) =>
                   e.foodTitle.toLowerCase().contains(value.toLowerCase()))
               .toList();
+          notifyListeners();
+
         case Error<List<Recipe>>():
           print(result.e);
       }
