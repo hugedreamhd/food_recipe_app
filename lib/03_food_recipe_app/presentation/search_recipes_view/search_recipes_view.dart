@@ -9,7 +9,9 @@ class SearchRecipesView with ChangeNotifier {
 
   SearchRecipesView({
     required this.repository,
-  });
+  }) {
+    fetchRecipe();
+  }
 
   List<Recipe> _recipe = [];
 

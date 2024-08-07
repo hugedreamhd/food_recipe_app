@@ -43,7 +43,7 @@ class SearchInputLayout extends StatelessWidget {
                       child: TextField(
                         readOnly: isCursor,
                         decoration: InputDecoration(
-                          hintText: inputSearch,
+                          hintText: 'Search recipe',
                           hintStyle: TextStyles.smallerTextRegular.copyWith(
                             color: ColorStyles.gray4,
                           ),

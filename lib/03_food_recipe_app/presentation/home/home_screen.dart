@@ -14,18 +14,18 @@ class HomeScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(24.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 15,
+              const SizedBox(
+                height: 30,
               ),
               Text(
                 'Hello Jega',
                 style: TextStyles.largeTextBold,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               Text(
@@ -34,14 +34,15 @@ class HomeScreen extends StatelessWidget {
                   color: ColorStyles.gray4,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
-              Row(
+              const Row(
                 children: [
                   Expanded(
                     child: SearchInputLayout(
-                      inputSearch: 'Search recipe',
+                      inputSearch: '',
+
                     ),
                   ),
                   SizedBox(

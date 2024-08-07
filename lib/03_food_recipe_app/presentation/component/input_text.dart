@@ -20,39 +20,37 @@ class InputTextField extends StatefulWidget {
 class _InputTextFieldState extends State<InputTextField> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            widget.inputTitle,
-            style: TextStyles.smallTextRegular,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          TextField(
-            decoration: InputDecoration(
-              hintText: widget.hintText,
-              hintStyle: TextStyles.smallerTextRegular.copyWith(
-                color: ColorStyles.gray4,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          widget.inputTitle,
+          style: TextStyles.smallTextRegular,
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        TextField(
+          decoration: InputDecoration(
+            hintText: widget.hintText,
+            hintStyle: TextStyles.smallerTextRegular.copyWith(
+              color: ColorStyles.gray4,
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: const BorderSide(
+                color: Colors.grey,
               ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(
-                  color: Colors.grey,
-                ),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(
-                  color: Colors.grey,
-                ),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: const BorderSide(
+                color: Colors.grey,
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
