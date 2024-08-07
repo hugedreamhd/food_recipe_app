@@ -7,11 +7,13 @@ import '../ui/text_styles.dart';
 class SearchInputLayout extends StatelessWidget {
   final String inputSearch;
   final bool isCursor;
+  final TextEditingController textEditingController;
 
   const SearchInputLayout({
     super.key,
     required this.inputSearch,
     this.isCursor = true,
+    required this.textEditingController,
   });
 
   @override
@@ -41,14 +43,19 @@ class SearchInputLayout extends StatelessWidget {
                     const SizedBox(width: 8),
                     Expanded(
                       child: TextField(
-                        readOnly: isCursor,
+                        // readOnly: isCursor,
+                        controller: textEditingController,
+                        // onChanged: () {
+                        //
+                        // },
                         decoration: InputDecoration(
                           hintText: 'Search recipe',
                           hintStyle: TextStyles.smallerTextRegular.copyWith(
                             color: ColorStyles.gray4,
                           ),
                           border: InputBorder.none,
-                          contentPadding: const EdgeInsets.symmetric(vertical: 15),
+                          contentPadding:
+                              const EdgeInsets.symmetric(vertical: 15),
                         ),
                       ),
                     ),

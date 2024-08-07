@@ -1,7 +1,7 @@
 import 'package:food_recipe_app/03_food_recipe_app/data/mock_recipe_data_source.dart';
 import 'package:food_recipe_app/03_food_recipe_app/model/recipe.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/home/home_screen.dart';
-import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe_detail_view/saved_recipe_detail_view.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe_detail/saved_recipe_detail_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/sign_in/sign_in_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/sing_up/sign_up_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/splash/splash_screen.dart';
@@ -37,10 +37,10 @@ final router = GoRouter(
       builder: (context, state) => const SearchRecipesScreen(),
     ),
     GoRoute(
-      path: '/saved_recipe_detail_view',
+      path: '/saved_recipe_detail_screen',
       builder: (context, state) {
         final recipe = state.extra as Recipe;
-        return SavedRecipeDetailView(
+        return SavedRecipeDetailScreen(
           recipe: recipe,
         );
       },

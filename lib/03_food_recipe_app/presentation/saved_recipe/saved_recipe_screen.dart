@@ -6,10 +6,10 @@ import '../../repository/recipe_repository.dart';
 import '../component/recipe_card.dart';
 import '../ui/text_styles.dart';
 
-class SavedRecipeView extends StatelessWidget {
+class SavedRecipeScreen extends StatelessWidget {
   final RecipeRepository repository;
 
-  const SavedRecipeView({
+  const SavedRecipeScreen({
     super.key,
     required this.repository,
   });

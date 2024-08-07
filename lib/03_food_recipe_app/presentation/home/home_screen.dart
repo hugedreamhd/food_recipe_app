@@ -6,9 +6,26 @@ import '../component/search_input_layout.dart';
 import '../ui/color_styles.dart';
 import '../ui/text_styles.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key, required RecipeRepositoryImpl repository});
+class HomeScreen extends StatefulWidget {
 
+  const HomeScreen({
+    super.key,
+    required RecipeRepositoryImpl repository,
+
+  });
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final textEditingController = TextEditingController();
+
+  @override
+  void dispose() {
+    textEditingController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,18 +54,18 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 25,
               ),
-              const Row(
+              Row(
                 children: [
                   Expanded(
                     child: SearchInputLayout(
                       inputSearch: '',
-
+                      textEditingController: textEditingController,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
-                  FilteringIcon(),
+                  const FilteringIcon(),
                 ],
               ),
             ],

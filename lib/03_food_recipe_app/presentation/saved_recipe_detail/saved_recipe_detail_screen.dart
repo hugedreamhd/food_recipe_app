@@ -3,19 +3,19 @@ import 'package:go_router/go_router.dart';
 
 import '../../model/recipe.dart';
 
-class SavedRecipeDetailView extends StatefulWidget {
+class SavedRecipeDetailScreen extends StatefulWidget {
   final Recipe recipe;
 
-  const SavedRecipeDetailView({
+  const SavedRecipeDetailScreen({
     super.key,
     required this.recipe,
   });
 
   @override
-  State<SavedRecipeDetailView> createState() => _SavedRecipeDetailViewState();
+  State<SavedRecipeDetailScreen> createState() => _SavedRecipeDetailScreenState();
 }
 
-class _SavedRecipeDetailViewState extends State<SavedRecipeDetailView> {
+class _SavedRecipeDetailScreenState extends State<SavedRecipeDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

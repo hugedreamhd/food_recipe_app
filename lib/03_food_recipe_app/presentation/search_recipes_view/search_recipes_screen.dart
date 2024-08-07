@@ -15,6 +15,14 @@ class SearchRecipesScreen extends StatefulWidget {
 }
 
 class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
+  final textEdtingController = TextEditingController();
+
+  @override
+  void dispose() {
+    textEdtingController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,6 +39,7 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
                 Expanded(
                   child: SearchInputLayout(
                     inputSearch: 'Search Recipe',
+                    textEditingController: textEdtingController,
                   ),
                 ),
                 SizedBox(
