@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipe_app/03_food_recipe_app/model/recipe.dart';
 import 'package:go_router/go_router.dart';
 
 import '../ui/color_styles.dart';
@@ -14,6 +15,7 @@ class SearchInputLayout extends StatelessWidget {
     required this.inputSearch,
     this.isCursor = true,
     required this.textEditingController,
+
   });
 
   @override
@@ -22,7 +24,7 @@ class SearchInputLayout extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: InkWell(
+            child: GestureDetector(
               onTap: () {
                 context.push('/search_recipes');
               },
@@ -45,9 +47,6 @@ class SearchInputLayout extends StatelessWidget {
                       child: TextField(
                         // readOnly: isCursor,
                         controller: textEditingController,
-                        // onChanged: () {
-                        //
-                        // },
                         decoration: InputDecoration(
                           hintText: 'Search recipe',
                           hintStyle: TextStyles.smallerTextRegular.copyWith(

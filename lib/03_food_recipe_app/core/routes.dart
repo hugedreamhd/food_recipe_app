@@ -36,14 +36,15 @@ final router = GoRouter(
       path: '/search_recipes',
       builder: (context, state) => const SearchRecipesScreen(),
     ),
-    GoRoute(
-      path: '/saved_recipe_detail_screen',
-      builder: (context, state) {
-        final recipe = state.extra as Recipe;
-        return SavedRecipeDetailScreen(
-          recipe: recipe,
-        );
-      },
-    ),
+
+    // GoRoute(
+    //   path: '/saved_recipe_detail_screen',
+    //   builder: (context, state) {
+    //     final recipe = state.extra as Recipe;
+    //     return SavedRecipeDetailScreen(
+    //       recipe: recipe,
+    //     );
+    //   },
+    // ),
   ],
 );
