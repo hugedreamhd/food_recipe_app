@@ -9,13 +9,14 @@ class SearchInputLayout extends StatelessWidget {
   final String inputSearch;
   final bool isCursor;
   final TextEditingController textEditingController;
+  final void Function(String)? onSubmitted;
 
   const SearchInputLayout({
     super.key,
     required this.inputSearch,
     this.isCursor = true,
     required this.textEditingController,
-
+    this.onSubmitted,
   });
 
   @override
@@ -47,6 +48,7 @@ class SearchInputLayout extends StatelessWidget {
                       child: TextField(
                         // readOnly: isCursor,
                         controller: textEditingController,
+                        onSubmitted: onSubmitted,
                         decoration: InputDecoration(
                           hintText: 'Search recipe',
                           hintStyle: TextStyles.smallerTextRegular.copyWith(

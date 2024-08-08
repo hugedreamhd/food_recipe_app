@@ -36,20 +36,21 @@ class SearchRecipesView with ChangeNotifier {
       case Error<List<Recipe>>():
         print(result.e);
     }
-//데이터 문자열로 검색하는 기능 함수
-    void search(String value) async {
-      final result = await repository.fetchRecipe();
-      switch (result) {
-        case Success<List<Recipe>>():
-          _recipe = result.data
-              .where((e) =>
-                  e.foodTitle.toLowerCase().contains(value.toLowerCase()))
-              .toList();
-          notifyListeners();
+  }
 
-        case Error<List<Recipe>>():
-          print(result.e);
-      }
+//데이터 문자열로 검색하는 기능 함수
+  void search(String value) async {
+    final result = await repository.fetchRecipe();
+    switch (result) {
+      case Success<List<Recipe>>():
+        _recipe = result.data
+            .where(
+                (e) => e.foodTitle.toLowerCase().contains(value.toLowerCase()))
+            .toList();
+        notifyListeners();
+
+      case Error<List<Recipe>>():
+        print(result.e);
     }
   }
 }

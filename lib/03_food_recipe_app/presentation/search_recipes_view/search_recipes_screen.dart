@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipe_app/03_food_recipe_app/model/recipe.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe_detail/saved_recipe_detail_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/search_recipes_view/search_recipes_view.dart';
 
 import '../component/filtering_icon.dart';
@@ -7,8 +7,11 @@ import '../component/search_input_layout.dart';
 import '../ui/text_styles.dart';
 
 class SearchRecipesScreen extends StatefulWidget {
+  final SearchRecipesView viewModel;
+
   const SearchRecipesScreen({
     super.key,
+    required this.viewModel,
   });
 
   @override
@@ -17,6 +20,12 @@ class SearchRecipesScreen extends StatefulWidget {
 
 class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
   final textEdtingController = TextEditingController();
+
+  @override
+  void initState() {
+    widget.viewModel.fetchRecipe();
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -39,9 +48,11 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
               children: [
                 Expanded(
                   child: SearchInputLayout(
-                    inputSearch: 'Search Recipe',
-                    textEditingController: textEdtingController,
-                  ),
+                      inputSearch: 'Search Recipe',
+                      textEditingController: textEdtingController,
+                      onSubmitted: (query) {
+                        widget.viewModel.search(query);
+                      }),
                 ),
                 SizedBox(
                   width: 16,
@@ -61,6 +72,55 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
             ),
             SizedBox(
               height: 16,
+            ),
+            Expanded(
+              child: ListenableBuilder(
+                listenable: widget.viewModel,
+                builder: (BuildContext context, Widget? child) {
+                  if (widget.viewModel.isLoading) {
+                    return Center(child: CircularProgressIndicator());
+                  }
+                  if (widget.viewModel.recipe.isEmpty) {
+                    return Center(child: Text('No recipe found'));
+                  }
+                  return GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 12,
+                      crossAxisSpacing: 12,
+                    ),
+                    itemCount: widget.viewModel.recipe.length,
+                    itemBuilder: (context, index) {
+                      final recipe = widget.viewModel.recipe[index];
+
+                      return GestureDetector(
+                        onTap: () {
+                          //recipe 상세화면 이동
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  SavedRecipeDetailScreen(recipe: recipe),
+                            ),
+                          );
+                        },
+                        child: Column(
+                          children: [
+                            Image.network(
+                              recipe.imagePath,
+                              fit: BoxFit.cover,
+                              height: 150,
+                              width: 150,
+                            ),
+                            // Text(recipe.foodTitle),
+                            // Text(recipe.creator),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
             ),
           ],
         ),
