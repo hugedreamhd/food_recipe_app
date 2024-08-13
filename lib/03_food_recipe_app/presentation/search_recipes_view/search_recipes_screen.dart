@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe_detail/saved_recipe_detail_screen.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/component/recipe_card.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/search_recipes_view/search_recipes_view.dart';
 
 import '../component/filtering_icon.dart';
@@ -8,7 +8,6 @@ import '../ui/text_styles.dart';
 
 class SearchRecipesScreen extends StatefulWidget {
   final SearchRecipesView viewModel;
-
   const SearchRecipesScreen({
     super.key,
     required this.viewModel,
@@ -94,16 +93,6 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
                       final recipe = widget.viewModel.recipe[index];
 
                       return GestureDetector(
-                        onTap: () {
-                          //recipe 상세화면 이동
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  SavedRecipeDetailScreen(recipe: recipe),
-                            ),
-                          );
-                        },
                         child: Column(
                           children: [
                             Image.network(
