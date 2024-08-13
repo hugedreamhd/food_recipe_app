@@ -1,5 +1,7 @@
 import 'package:food_recipe_app/03_food_recipe_app/data/data_source/mock_recipe_data_source.dart';
+import 'package:food_recipe_app/03_food_recipe_app/model/recipe.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/home/home_screen.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe/saved_recipe_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/search_recipes_view/search_recipes_view.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/sign_in/sign_in_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/sing_up/sign_up_screen.dart';
@@ -43,15 +45,16 @@ final router = GoRouter(
         );
       },
     ),
-
-    // GoRoute(
-    //   path: '/saved_recipe_detail_screen',
-    //   builder: (context, state) {
-    //     final recipe = state.extra as Recipe;
-    //     return SavedRecipeDetailScreen(
-    //       recipe: recipe,
-    //     );
-    //   },
-    // ),
+    GoRoute(
+      path: '/saved_recipe_screen',
+      builder: (context, state) {
+        final recipe = state.extra as Recipe;
+        return SavedRecipeScreen(
+          repository: RecipeRepositoryImpl(
+            recipeDataSource: MockRecipeDataSource(),
+          ),
+        );
+      },
+    ),
   ],
 );

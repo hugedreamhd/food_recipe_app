@@ -26,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     textEditingController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
