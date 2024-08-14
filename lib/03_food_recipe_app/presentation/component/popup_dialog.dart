@@ -19,7 +19,7 @@ class PopupDialog extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Icon(
@@ -29,13 +29,13 @@ class PopupDialog extends StatelessWidget {
               ],
             ),
             Text('Recipe Link', style: TextStyles.largeTextBold),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Text('Copy recipe link and share your recipe link with',
                 style: TextStyles.smallerTextRegular),
             Text('friends and family', style: TextStyles.smallerTextRegular),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Stack(
