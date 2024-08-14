@@ -1,15 +1,31 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 abstract class TextStyles {
-  static TextStyle tittleTextBold = const TextStyle(
-    fontFamily: 'Poppins',
-    fontSize: 50,
-    fontWeight: FontWeight.bold,
-    height: 75 / 50,
-    letterSpacing: 0,
-  );
+  static TextStyle _textStyle({
+    required double fontSize,
+    required FontWeight fontWeight,
+    required double height,
+  }) {
+    return TextStyle(
+      fontFamily: GoogleFonts
+          .poppins()
+          .fontFamily,
+      fontSize: fontSize,
+      fontWeight: fontWeight,
+      height: height,
+      letterSpacing: 0,
+    );
+  }
+
+// abstract class TextStyles {
+//   static TextStyle tittleTextBold = const TextStyle(
+//     fontFamily: 'Poppins',
+//     fontSize: 50,
+//     fontWeight: FontWeight.bold,
+//     height: 75 / 50,
+//     letterSpacing: 0,
+//   );
 
   static TextStyle headerTextBold = const TextStyle(
     fontFamily: 'Poppins',
