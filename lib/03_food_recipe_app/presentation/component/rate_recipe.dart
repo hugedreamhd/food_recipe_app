@@ -43,7 +43,7 @@ class RateRecipe extends StatelessWidget {
                   onPressed: () {
                     //첫번째 선택된 별이 star일때 다시 클릭하면 0으로 되돌림
                     if(index == rating - 1) {
-                      onTap?.call(rating - 1);
+                      onTap?.call(rating);
                     } else {
                     //선택된 별의 개수를 콜백으로 전달
                     onTap?.call(index + 1);
