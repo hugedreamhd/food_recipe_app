@@ -41,7 +41,7 @@ class RateRecipe extends StatelessWidget {
                     index < rating ? Icons.star : Icons.star_border_outlined,
                   ),
                   onPressed: () {
-                    //첫번째 선택된 별이 star일때 다시 클릭하면 0으로 되돌림
+                    //선택된 별에서 -1 한값과 인덱스가 같으면 선택된 rating을 호출
                     if(index == rating - 1) {
                       onTap?.call(rating);
                     } else {
