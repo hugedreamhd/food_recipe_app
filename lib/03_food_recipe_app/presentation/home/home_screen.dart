@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/component/rate_recipe.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe/saved_recipe_screen.dart';
 
 import '../../repository/recipe_repository_impl.dart';
 import '../component/filtering_icon.dart';
@@ -7,11 +9,9 @@ import '../ui/color_styles.dart';
 import '../ui/text_styles.dart';
 
 class HomeScreen extends StatefulWidget {
-
   const HomeScreen({
     super.key,
     required RecipeRepositoryImpl repository,
-
   });
 
   @override
@@ -67,8 +67,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: 20,
                   ),
                   const FilteringIcon(),
+
                 ],
               ),
+
             ],
           ),
         ),

@@ -46,7 +46,7 @@ class SplashScreen extends StatelessWidget {
                     Text(
                       'Get\nCooking',
                       textAlign: TextAlign.center,
-                      style: TextStyles.tittleTextBold.copyWith(
+                      style: TextStyles.largeTextBold.copyWith(
                         color: ColorStyles.white,
                       ),
                     ),
