@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/component/navigation_bar.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/component/rate_recipe.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe/saved_recipe_screen.dart';
 
@@ -19,6 +20,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
   final textEditingController = TextEditingController();
 
   @override
@@ -34,7 +36,6 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Padding(
           padding: const EdgeInsets.all(24.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
                 height: 30,
@@ -67,12 +68,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: 20,
                   ),
                   const FilteringIcon(),
-
                 ],
               ),
-
             ],
           ),
+        ),
+        bottomNavigationBar: CustomNavigationBar(
+          selectedIndex: _selectedIndex,
+          onDestinationSelected: (int index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
         ),
       ),
     );
