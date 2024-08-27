@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipe_app/03_food_recipe_app/model/recipe.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/component/recipe_card.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/search_recipes_view/components/search_result_image.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/search_recipes_view/search_recipes_view.dart';
 
 import '../component/filtering_icon.dart';
@@ -7,6 +10,7 @@ import '../ui/text_styles.dart';
 
 class SearchRecipesScreen extends StatefulWidget {
   final SearchRecipesView viewModel;
+
   const SearchRecipesScreen({
     super.key,
     required this.viewModel,
@@ -17,6 +21,7 @@ class SearchRecipesScreen extends StatefulWidget {
 }
 
 class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
+  late final Recipe recipe;
   final textEdtingController = TextEditingController();
 
   @override
@@ -84,27 +89,29 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
                   return GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      mainAxisSpacing: 12,
-                      crossAxisSpacing: 12,
+                      mainAxisSpacing: 24,
+                      crossAxisSpacing: 24,
                     ),
                     itemCount: widget.viewModel.recipe.length,
                     itemBuilder: (context, index) {
                       final recipe = widget.viewModel.recipe[index];
 
-                      return GestureDetector(
-                        child: Column(
-                          children: [
-                            Image.network(
-                              recipe.imagePath,
-                              fit: BoxFit.cover,
-                              height: 150,
-                              width: 150,
-                            ),
-                            // Text(recipe.foodTitle),
-                            // Text(recipe.creator),
-                          ],
-                        ),
-                      );
+                      return SearchResultImage(recipe: recipe);
+                      // return GestureDetector(
+                      //   child: Column(
+                      //     children: [
+                      //       Expanded(child: RecipeCard(recipe: recipe)),
+                      //       Image.network(
+                      //         recipe.imagePath,
+                      //         fit: BoxFit.cover,
+                      //         height: 150,
+                      //         width: 150,
+                      //       ),
+                      //       Text(recipe.foodTitle),
+                      //       Text(recipe.creator),
+                      //     ],
+                      //   ),
+                      // );
                     },
                   );
                 },

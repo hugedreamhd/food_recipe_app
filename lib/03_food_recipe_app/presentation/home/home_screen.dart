@@ -22,6 +22,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   //바텀 네비게이션 위치 인덱스
   int _selectedIndex = 0;
+
   //글자를 항상 보이지 않게 하는것
   NavigationDestinationLabelBehavior labelBehavior =
       NavigationDestinationLabelBehavior.alwaysHide;

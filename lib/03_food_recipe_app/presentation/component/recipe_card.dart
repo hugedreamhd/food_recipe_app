@@ -15,9 +15,10 @@ class RecipeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Hero(
-      tag: 'recipe_tags',
+      tag: 'recipe_tags_${recipe.id}',
       child: Stack(
         children: [
+          const AspectRatio(aspectRatio: 1 / 1),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ClipRRect(
@@ -130,7 +131,6 @@ class RecipeCard extends StatelessWidget {
                     const SizedBox(
                       width: 10,
                     ),
-
                   ],
                 ),
               ],
@@ -151,7 +151,7 @@ class RecipeCard extends StatelessWidget {
                         color: Colors.white,
                       ),
                       child: Image.asset(
-                        'asset/images/nactive_icon.png',
+                        'asset/images/native_icon.png',
                         height: 17,
                         width: 17,
                         color: ColorStyles.success,
