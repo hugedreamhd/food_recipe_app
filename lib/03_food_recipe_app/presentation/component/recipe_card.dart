@@ -18,7 +18,6 @@ class RecipeCard extends StatelessWidget {
       tag: 'recipe_tags_${recipe.id}',
       child: Stack(
         children: [
-          const AspectRatio(aspectRatio: 1 / 1),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ClipRRect(
@@ -50,41 +49,33 @@ class RecipeCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 290.0,
             right: 20.0,
             top: 20.0,
-            bottom: 170,
             child: Container(
-              height: 10,
-              width: 20,
+              height: 20,
+              width: 50,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: ColorStyles.secondary20,
               ),
-              child: SizedBox(
-                height: 20,
-                width: 30,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(
-                      Icons.star,
-                      color: ColorStyles.secondary80,
-                      size: 15.0,
-                    ),
-                    const SizedBox(
-                      width: 2,
-                    ),
-                    Text(
-                        style: TextStyles.smallTextRegular, '${recipe.rating}'),
-                  ],
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.star,
+                    color: ColorStyles.secondary80,
+                    size: 15.0,
+                  ),
+                  const SizedBox(
+                    width: 2,
+                  ),
+                  Text(style: TextStyles.smallTextRegular, '${recipe.rating}'),
+                ],
               ),
             ),
           ),
           Positioned(
             top: 120,
-            width: 230,
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -92,15 +83,15 @@ class RecipeCard extends StatelessWidget {
                 children: [
                   Text(
                     recipe.foodTitle,
-                    style:
-                        TextStyles.mediumTextBold.copyWith(color: Colors.white),
+                    style: TextStyles.mediumTextBold.copyWith(
+                      color: Colors.white,
+                    ),
                   ),
+                  const SizedBox(height: 5,),
                   Text(
                     'By ${recipe.creator}',
                     style: TextStyles.smallerTextRegular.copyWith(
                       color: Colors.white,
-                      fontWeight: FontWeight.w300,
-                      fontSize: 8,
                     ),
                   ),
                 ],
@@ -108,8 +99,8 @@ class RecipeCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            right: 50,
-            bottom: 20,
+            right: 70,
+            top: 165,
             child: Column(
               children: [
                 Row(
@@ -137,29 +128,21 @@ class RecipeCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            right: 25,
-            bottom: 20,
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      height: 25,
-                      width: 25,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                      ),
-                      child: Image.asset(
-                        'asset/images/native_icon.png',
-                        height: 17,
-                        width: 17,
-                        color: ColorStyles.success,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+            right: 30,
+            top: 165,
+            child: Container(
+              height: 25,
+              width: 25,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white,
+              ),
+              child: Image.asset(
+                'asset/images/native_icon.png',
+                height: 17,
+                width: 17,
+                color: ColorStyles.success,
+              ),
             ),
           ),
         ],
