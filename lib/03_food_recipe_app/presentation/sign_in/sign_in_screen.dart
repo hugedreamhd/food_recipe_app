@@ -57,7 +57,7 @@ class SignInScreen extends StatelessWidget {
                 BigButton(
                   title: 'Sign In',
                   onTap: () {
-                    context.go('/home_screen');
+                    context.go('/main_screen');
                   },
                 ),
                 const SizedBox(
