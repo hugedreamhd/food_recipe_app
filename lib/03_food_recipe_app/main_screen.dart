@@ -4,17 +4,16 @@ import 'package:food_recipe_app/03_food_recipe_app/presentation/notification/not
 import 'package:food_recipe_app/03_food_recipe_app/presentation/profile/profile_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe/saved_recipe_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/ui/color_styles.dart';
-import 'package:food_recipe_app/03_food_recipe_app/repository/recipe_repository.dart';
 import 'package:food_recipe_app/03_food_recipe_app/repository/recipe_repository_impl.dart';
 
 class MainScreen extends StatefulWidget {
   // final RecipeRepository recipeRepository;
   final RecipeRepositoryImpl recipeRepository;
 
-  const MainScreen(
-      {super.key,
-      required this.recipeRepository,
-      });
+  const MainScreen({
+    super.key,
+    required this.recipeRepository,
+  });
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -32,7 +31,9 @@ class _MainScreenState extends State<MainScreen> {
       HomeScreen(
         repository: widget.recipeRepository,
       ),
-      SavedRecipeScreen(repository: widget.recipeRepository),
+      SavedRecipeScreen(
+        viewModel: widget.recipeRepository,
+      ),
       NotificationScreen(),
       ProfileScreen(),
     ];
