@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe/saved_recipe_view_model.dart';
+import 'package:provider/provider.dart';
 
-import '../../core/result.dart';
-import '../../model/recipe.dart';
-import '../../repository/recipe_repository.dart';
 import '../component/recipe_card.dart';
 import '../ui/text_styles.dart';
 
 class SavedRecipeScreen extends StatelessWidget {
-  final RecipeRepository repository;
+  final SavedRecipeViewModel viewModel;
 
   const SavedRecipeScreen({
     super.key,
-    required this.repository,
+    required this.viewModel,
   });
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = context.watch<SavedRecipeViewModel>();
     return SafeArea(
       child: Column(
         children: [
@@ -29,29 +29,14 @@ class SavedRecipeScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: FutureBuilder(
-              future: repository.fetchRecipe(),
-              builder: (BuildContext context,
-                  AsyncSnapshot<Result<List<Recipe>>> snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
-                final result = snapshot.data!;
-                switch (result) {
-                  case Success<List<Recipe>>():
-                    return ListView(
-                      padding: EdgeInsets.zero,
-                      children: result.data
-                          .map((e) => RecipeCard(recipe: e))
-                          .toList(),
-                    );
-                  case Error<List<Recipe>>():
-                    return Text(result.e);
-                }
-              },
-            ),
+            child: viewModel.isLoading
+                ? const Center(child: CircularProgressIndicator())
+                : ListView(
+                    padding: EdgeInsets.zero,
+                    children: viewModel.recipes
+                        .map((e) => RecipeCard(recipe: e))
+                        .toList(),
+                  ),
           ),
         ],
       ),
