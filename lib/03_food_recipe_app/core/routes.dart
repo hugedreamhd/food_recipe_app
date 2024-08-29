@@ -1,4 +1,5 @@
 import 'package:food_recipe_app/03_food_recipe_app/data/data_source/mock_recipe_data_source.dart';
+import 'package:food_recipe_app/03_food_recipe_app/main_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/model/recipe.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/home/home_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe/saved_recipe_screen.dart';
@@ -18,13 +19,21 @@ final router = GoRouter(
       builder: (context, state) => const SplashScreen(),
     ),
     GoRoute(
-      path: '/home_screen',
-      builder: (context, state) => HomeScreen(
-        repository: RecipeRepositoryImpl(
+      path: '/main_screen',
+      builder: (context, state) => MainScreen(
+        recipeRepository: RecipeRepositoryImpl(
           recipeDataSource: MockRecipeDataSource(),
         ),
       ),
     ),
+    // GoRoute(
+    //   path: '/home_screen',
+    //   builder: (context, state) => HomeScreen(
+    //     repository: RecipeRepositoryImpl(
+    //       recipeDataSource: MockRecipeDataSource(),
+    //     ),
+    //   ),
+    // ),
     GoRoute(
       path: '/sign_in',
       builder: (context, state) => const SignInScreen(),
