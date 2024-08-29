@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipe_app/03_food_recipe_app/presentation/component/navigation_bar.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/home/home_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/notification/notification_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/profile/profile_screen.dart';
