@@ -95,7 +95,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 BigButton(
                   title: 'Sign Up',
                   onTap: () {
-                    context.go('/home_screen');
+                    context.go('/main_screen');
                   },
                 ),
                 const SizedBox(
