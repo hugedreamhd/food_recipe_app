@@ -31,7 +31,7 @@ class SearchResultImage extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [Colors.transparent, Colors.black87],
@@ -45,10 +45,13 @@ class SearchResultImage extends StatelessWidget {
             children: [
               SizedBox(
                 width: 150,
-                child: Text(
-                  recipe.foodTitle,
-                  style: TextStyles.smallerTextBold
-                      .copyWith(color: ColorStyles.white),
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 15),
+                  child: Text(
+                    recipe.foodTitle,
+                    style: TextStyles.smallerTextBold
+                        .copyWith(color: ColorStyles.white),
+                  ),
                 ),
               ),
             ],
@@ -71,37 +74,31 @@ class SearchResultImage extends StatelessWidget {
           ),
         ),
         Positioned(
-          left: 110.0,
-          right: 15.0,
-          top: 10.0,
-          bottom: 140,
+          right: 10.0,
+          top: 10,
           child: Container(
-            height: 15,
-            width: 15,
+            height: 20,
+            width: 50,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: ColorStyles.secondary20,
             ),
-            child: SizedBox(
-              height: 10,
-              width: 10,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(
-                    Icons.star,
-                    color: ColorStyles.secondary80,
-                    size: 15.0,
-                  ),
-                  const SizedBox(
-                    width: 2,
-                  ),
-                  Text(
-                    style: TextStyles.smallerTextRegular,
-                    '${recipe.rating}',
-                  ),
-                ],
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(
+                  Icons.star,
+                  color: ColorStyles.secondary80,
+                  size: 15.0,
+                ),
+                const SizedBox(
+                  width: 2,
+                ),
+                Text(
+                  style: TextStyles.smallerTextRegular,
+                  '${recipe.rating}',
+                ),
+              ],
             ),
           ),
         ),
