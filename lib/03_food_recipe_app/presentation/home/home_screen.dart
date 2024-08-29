@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipe_app/03_food_recipe_app/presentation/component/navigation_bar.dart';
-import 'package:food_recipe_app/03_food_recipe_app/presentation/component/rate_recipe.dart';
-import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe/saved_recipe_screen.dart';
+import 'package:food_recipe_app/03_food_recipe_app/repository/recipe_repository.dart';
 
-import '../../repository/recipe_repository_impl.dart';
 import '../component/filtering_icon.dart';
 import '../component/search_input_layout.dart';
 import '../ui/color_styles.dart';
@@ -12,7 +9,7 @@ import '../ui/text_styles.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({
     super.key,
-    required RecipeRepositoryImpl repository,
+    required RecipeRepository repository,
   });
 
   @override
@@ -20,12 +17,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  //바텀 네비게이션 위치 인덱스
-  int _selectedIndex = 0;
-
-  //글자를 항상 보이지 않게 하는것
-  NavigationDestinationLabelBehavior labelBehavior =
-      NavigationDestinationLabelBehavior.alwaysHide;
   final textEditingController = TextEditingController();
 
   @override
@@ -77,15 +68,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-        ),
-        bottomNavigationBar: CustomNavigationBar(
-          labelBehavior: labelBehavior,
-          selectedIndex: _selectedIndex,
-          onDestinationSelected: (int index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
         ),
       ),
     );
