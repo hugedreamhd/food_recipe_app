@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipe_app/03_food_recipe_app/model/recipe.dart';
-import 'package:food_recipe_app/03_food_recipe_app/presentation/component/recipe_card.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/search_recipes_view/components/search_result_image.dart';
-import 'package:food_recipe_app/03_food_recipe_app/presentation/search_recipes_view/search_recipes_view.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/search_recipes_view/search_recipes_view_model.dart';
 
 import '../component/filtering_icon.dart';
 import '../component/search_input_layout.dart';
 import '../ui/text_styles.dart';
 
 class SearchRecipesScreen extends StatefulWidget {
-  final SearchRecipesView viewModel;
+  final SearchRecipesViewModel viewModel;
 
   const SearchRecipesScreen({
     super.key,
@@ -40,7 +39,7 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Search recipes'),
+        title: const Text('Search recipes'),
         centerTitle: true,
       ),
       body: Padding(
@@ -57,13 +56,13 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
                         widget.viewModel.search(query);
                       }),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 16,
                 ),
-                FilteringIcon(),
+                const FilteringIcon(),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Align(
@@ -73,7 +72,7 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
                 style: TextStyles.mediumTextBold,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Expanded(
@@ -81,13 +80,18 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
                 listenable: widget.viewModel,
                 builder: (BuildContext context, Widget? child) {
                   if (widget.viewModel.isLoading) {
-                    return Center(child: CircularProgressIndicator());
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
                   }
                   if (widget.viewModel.recipe.isEmpty) {
-                    return Center(child: Text('No recipe found'));
+                    return const Center(
+                      child: Text('No recipe found'),
+                    );
                   }
                   return GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       mainAxisSpacing: 24,
                       crossAxisSpacing: 24,

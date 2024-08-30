@@ -1,18 +1,17 @@
-import 'package:food_recipe_app/03_food_recipe_app/data/data_source/mock_recipe_data_source.dart';
+import 'package:food_recipe_app/03_food_recipe_app/data/data_source/recipe/mock_recipe_data_source.dart';
+import 'package:food_recipe_app/03_food_recipe_app/data/data_source/saved_recipe/mock_saved_recipe_data_source.dart';
 import 'package:food_recipe_app/03_food_recipe_app/main_screen.dart';
-import 'package:food_recipe_app/03_food_recipe_app/model/recipe.dart';
-import 'package:food_recipe_app/03_food_recipe_app/presentation/home/home_screen.dart';
-import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe/saved_recipe_screen.dart';
-import 'package:food_recipe_app/03_food_recipe_app/presentation/search_recipes_view/search_recipes_view.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/search_recipes_view/search_recipes_view_model.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/sign_in/sign_in_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/sing_up/sign_up_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/splash/splash_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/repository/recipe_repository_impl.dart';
+import 'package:food_recipe_app/03_food_recipe_app/repository/saved_recipe_repository_impl.dart';
 import 'package:go_router/go_router.dart';
 import '../presentation/search_recipes_view/search_recipes_screen.dart';
 
 final router = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/main_screen',
   routes: <RouteBase>[
     GoRoute(
       path: '/',
@@ -24,16 +23,10 @@ final router = GoRouter(
         recipeRepository: RecipeRepositoryImpl(
           recipeDataSource: MockRecipeDataSource(),
         ),
+        savedRecipeRepository: SavedRecipeRepositoryImpl(
+            recipeDataSource: MockSavedRecipeDataSource()),
       ),
     ),
-    // GoRoute(
-    //   path: '/home_screen',
-    //   builder: (context, state) => HomeScreen(
-    //     repository: RecipeRepositoryImpl(
-    //       recipeDataSource: MockRecipeDataSource(),
-    //     ),
-    //   ),
-    // ),
     GoRoute(
       path: '/sign_in',
       builder: (context, state) => const SignInScreen(),
@@ -46,21 +39,10 @@ final router = GoRouter(
       path: '/search_recipes',
       builder: (context, state) {
         return SearchRecipesScreen(
-          viewModel: SearchRecipesView(
+          viewModel: SearchRecipesViewModel(
             repository: RecipeRepositoryImpl(
               recipeDataSource: MockRecipeDataSource(),
             ),
-          ),
-        );
-      },
-    ),
-    GoRoute(
-      path: '/saved_recipe_screen',
-      builder: (context, state) {
-        final recipe = state.extra as Recipe;
-        return SavedRecipeScreen(
-          repository: RecipeRepositoryImpl(
-            recipeDataSource: MockRecipeDataSource(),
           ),
         );
       },

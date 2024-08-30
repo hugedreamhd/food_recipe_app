@@ -4,10 +4,10 @@ import 'package:food_recipe_app/03_food_recipe_app/repository/recipe_repository.
 
 import '../../model/recipe.dart';
 
-class SearchRecipesView with ChangeNotifier {
+class SearchRecipesViewModel with ChangeNotifier {
   final RecipeRepository repository;
 
-  SearchRecipesView({
+  SearchRecipesViewModel({
     required this.repository,
   }) {
     fetchRecipe();
