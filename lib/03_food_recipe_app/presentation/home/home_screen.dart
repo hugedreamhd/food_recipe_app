@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipe_app/03_food_recipe_app/core/routes.dart';
 import 'package:food_recipe_app/03_food_recipe_app/repository/recipe_repository.dart';
+import 'package:go_router/go_router.dart';
 
 import '../component/filtering_icon.dart';
 import '../component/search_input_layout.dart';
@@ -55,9 +57,14 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 children: [
                   Expanded(
-                    child: SearchInputLayout(
-                      inputSearch: '',
-                      textEditingController: textEditingController,
+                    child: GestureDetector(
+                      onTap: () {
+                        context.push('/search_recipes');
+                      },
+                      child: SearchInputLayout(
+                        inputSearch: '',
+                        textEditingController: textEditingController,
+                      ),
                     ),
                   ),
                   const SizedBox(

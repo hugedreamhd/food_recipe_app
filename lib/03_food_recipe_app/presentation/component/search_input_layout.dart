@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipe_app/03_food_recipe_app/model/recipe.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/ui/color_styles.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/ui/text_styles.dart';
 import 'package:go_router/go_router.dart';
-
-import '../ui/color_styles.dart';
-import '../ui/text_styles.dart';
 
 class SearchInputLayout extends StatelessWidget {
   final String inputSearch;
@@ -21,46 +19,33 @@ class SearchInputLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return Container(
+      height: 40,
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: ColorStyles.gray4),
+      ),
       child: Row(
         children: [
+          SizedBox(
+            height: 16,
+            width: 16,
+            child: Image.asset('asset/images/search-normal.png'),
+          ),
+          const SizedBox(width: 8),
           Expanded(
-            child: GestureDetector(
-              onTap: () {
-                context.push('/search_recipes');
-              },
-              child: Container(
-                height: 40,
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: ColorStyles.gray4),
-                ),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      height: 16,
-                      width: 16,
-                      child: Image.asset('asset/images/search-normal.png'),
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: TextField(
-                        // readOnly: isCursor,
-                        controller: textEditingController,
-                        onSubmitted: onSubmitted,
-                        decoration: InputDecoration(
-                          hintText: 'Search recipe',
-                          hintStyle: TextStyles.smallerTextRegular.copyWith(
-                            color: ColorStyles.gray4,
-                          ),
-                          border: InputBorder.none,
-                          contentPadding:
-                              const EdgeInsets.symmetric(vertical: 15),
-                        ),
-                      ),
-                    ),
-                  ],
+            child: AbsorbPointer(
+              child: TextField(
+                readOnly: true, // 전체 컨테이너에 onTap을 감지하기 위해 readOnly를 true로 설정
+                controller: textEditingController,
+                decoration: InputDecoration(
+                  hintText: 'Search recipe',
+                  hintStyle: TextStyles.smallerTextRegular.copyWith(
+                    color: ColorStyles.gray4,
+                  ),
+                  border: InputBorder.none,
+                  contentPadding: const EdgeInsets.symmetric(vertical: 15),
                 ),
               ),
             ),
