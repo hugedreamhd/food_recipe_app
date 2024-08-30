@@ -6,11 +6,11 @@ import '../component/recipe_card.dart';
 import '../ui/text_styles.dart';
 
 class SavedRecipeScreen extends StatelessWidget {
-  final SavedRecipeViewModel viewModel;
+
 
   const SavedRecipeScreen({
     super.key,
-    required this.viewModel,
+
   });
 
   @override

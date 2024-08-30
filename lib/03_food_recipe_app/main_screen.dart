@@ -3,16 +3,20 @@ import 'package:food_recipe_app/03_food_recipe_app/presentation/home/home_screen
 import 'package:food_recipe_app/03_food_recipe_app/presentation/notification/notification_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/profile/profile_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe/saved_recipe_screen.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe/saved_recipe_view_model.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/ui/color_styles.dart';
-import 'package:food_recipe_app/03_food_recipe_app/repository/recipe_repository_impl.dart';
+import 'package:food_recipe_app/03_food_recipe_app/repository/recipe_repository.dart';
+import 'package:food_recipe_app/03_food_recipe_app/repository/saved_recipe_repository.dart';
+import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
-  // final RecipeRepository recipeRepository;
-  final RecipeRepositoryImpl recipeRepository;
+  final SavedRecipeRepository savedRecipeRepository;
+  final RecipeRepository recipeRepository;
 
   const MainScreen({
     super.key,
     required this.recipeRepository,
+    required this.savedRecipeRepository,
   });
 
   @override
@@ -31,18 +35,12 @@ class _MainScreenState extends State<MainScreen> {
       HomeScreen(
         repository: widget.recipeRepository,
       ),
-      SavedRecipeScreen(
-        viewModel: widget.recipeRepository,
-      ),
+      ChangeNotifierProvider(
+          create: (context) => SavedRecipeViewModel(
+              recipeRepository: widget.savedRecipeRepository),child: const SavedRecipeScreen(),),
       NotificationScreen(),
       ProfileScreen(),
     ];
-
-    // void changeScreen(int index) {
-    //   setState(() {
-    //     _currentIndex = index;
-    //   });
-    // }
 
     return Scaffold(
       bottomNavigationBar: NavigationBar(
