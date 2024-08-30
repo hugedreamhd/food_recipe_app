@@ -1,6 +1,6 @@
 
 import '../core/result.dart';
-import '../data/data_source/recipe_data_source.dart';
+import '../data/data_source/recipe/recipe_data_source.dart';
 import '../model/recipe.dart';
 import 'recipe_repository.dart';
 
