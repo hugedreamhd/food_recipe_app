@@ -1,14 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:food_recipe_app/03_food_recipe_app/core/result.dart';
 import 'package:food_recipe_app/03_food_recipe_app/model/recipe.dart';
-import 'package:food_recipe_app/03_food_recipe_app/repository/recipe_repository.dart';
+import 'package:food_recipe_app/03_food_recipe_app/repository/saved_recipe_repository.dart';
 
 class SavedRecipeViewModel with ChangeNotifier {
-  final RecipeRepository recipeRepository;
+  final SavedRecipeRepository recipeRepository;
 
   SavedRecipeViewModel({
     required this.recipeRepository,
-  });
+  }){
+    getRecipes();
+  }
 
   List<Recipe> _recipes = [];
 
@@ -18,18 +20,20 @@ class SavedRecipeViewModel with ChangeNotifier {
 
   bool get isLoading => _isLoading;
 
-  void fetchRecipe() async {
+  void getRecipes() async {
     _isLoading = true;
     notifyListeners();
 
-    final result = await recipeRepository.fetchRecipe();
+    final result = await recipeRepository.getRecipes();
     switch (result) {
       case Success<List<Recipe>>():
         _recipes = result.data;
-        _isLoading = false;
-        notifyListeners();
+
       case Error<List<Recipe>>():
         print('알수 없는 오류');
     }
+    _isLoading = false;
+    notifyListeners();
+
   }
 }
