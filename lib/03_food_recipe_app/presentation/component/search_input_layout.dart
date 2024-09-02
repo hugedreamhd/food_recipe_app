@@ -7,14 +7,14 @@ class SearchInputLayout extends StatelessWidget {
   final String inputSearch;
   final bool isCursor;
   final TextEditingController textEditingController;
-  final void Function(String)? onSubmitted;
+  final void Function(String)? onChanged;
 
   const SearchInputLayout({
     super.key,
     required this.inputSearch,
-    this.isCursor = true,
+    this.isCursor = false,
     required this.textEditingController,
-    this.onSubmitted,
+    this.onChanged,
   });
 
   @override
@@ -35,18 +35,18 @@ class SearchInputLayout extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           Expanded(
-            child: AbsorbPointer(
-              child: TextField(
-                readOnly: true, // 전체 컨테이너에 onTap을 감지하기 위해 readOnly를 true로 설정
-                controller: textEditingController,
-                decoration: InputDecoration(
-                  hintText: 'Search recipe',
-                  hintStyle: TextStyles.smallerTextRegular.copyWith(
-                    color: ColorStyles.gray4,
-                  ),
-                  border: InputBorder.none,
-                  contentPadding: const EdgeInsets.symmetric(vertical: 15),
+            child: TextField(
+              readOnly: isCursor,
+              // 전체 컨테이너에 onTap을 감지하기 위해 readOnly를 true로 설정
+              onChanged: onChanged,
+              controller: textEditingController,
+              decoration: InputDecoration(
+                hintText: 'Search recipe',
+                hintStyle: TextStyles.smallerTextRegular.copyWith(
+                  color: ColorStyles.gray4,
                 ),
+                border: InputBorder.none,
+                contentPadding: const EdgeInsets.symmetric(vertical: 15),
               ),
             ),
           ),

@@ -50,9 +50,10 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
               children: [
                 Expanded(
                   child: SearchInputLayout(
+                    // isCursor: false,
                       inputSearch: 'Search Recipe',
                       textEditingController: textEdtingController,
-                      onSubmitted: (query) {
+                      onChanged: (query) {
                         widget.viewModel.search(query);
                       }),
                 ),
@@ -80,18 +81,13 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
                 listenable: widget.viewModel,
                 builder: (BuildContext context, Widget? child) {
                   if (widget.viewModel.isLoading) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
+                    return const Center(child: CircularProgressIndicator());
                   }
                   if (widget.viewModel.recipe.isEmpty) {
-                    return const Center(
-                      child: Text('No recipe found'),
-                    );
+                    return const Center(child: Text('No recipe found'));
                   }
                   return GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       mainAxisSpacing: 24,
                       crossAxisSpacing: 24,
