@@ -62,6 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         context.push('/search_recipes');
                       },
                       child: SearchInputLayout(
+                        isCursor: true,
                         inputSearch: '',
                         textEditingController: textEditingController,
                       ),

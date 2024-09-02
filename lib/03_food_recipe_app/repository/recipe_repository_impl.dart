@@ -1,4 +1,3 @@
-
 import '../core/result.dart';
 import '../data/data_source/recipe/recipe_data_source.dart';
 import '../model/recipe.dart';
@@ -19,10 +18,5 @@ class RecipeRepositoryImpl implements RecipeRepository {
     } catch (e) {
       return const Result.error('fail load');
     }
-
   }
-
-
 }
-
-
