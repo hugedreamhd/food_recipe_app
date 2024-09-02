@@ -6,11 +6,8 @@ import '../component/recipe_card.dart';
 import '../ui/text_styles.dart';
 
 class SavedRecipeScreen extends StatelessWidget {
-
-
   const SavedRecipeScreen({
     super.key,
-
   });
 
   @override

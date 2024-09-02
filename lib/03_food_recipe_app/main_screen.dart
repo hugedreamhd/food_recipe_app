@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipe_app/03_food_recipe_app/data/data_source/recipe/mock_recipe_data_source.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/home/home_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/notification/notification_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/profile/profile_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe/saved_recipe_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe/saved_recipe_view_model.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/search_recipes_view/search_recipes_screen.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/search_recipes_view/search_recipes_view_model.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/ui/color_styles.dart';
 import 'package:food_recipe_app/03_food_recipe_app/repository/recipe_repository.dart';
+import 'package:food_recipe_app/03_food_recipe_app/repository/recipe_repository_impl.dart';
 import 'package:food_recipe_app/03_food_recipe_app/repository/saved_recipe_repository.dart';
 import 'package:provider/provider.dart';
 
@@ -33,11 +37,15 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     final List<Widget> screens = [
       HomeScreen(
-        repository: widget.recipeRepository,
+        repository: RecipeRepositoryImpl(
+          recipeDataSource: MockRecipeDataSource(),
+        ),
       ),
       ChangeNotifierProvider(
-          create: (context) => SavedRecipeViewModel(
-              recipeRepository: widget.savedRecipeRepository),child: const SavedRecipeScreen(),),
+        create: (context) => SavedRecipeViewModel(
+            recipeRepository: widget.savedRecipeRepository),
+        child: const SavedRecipeScreen(),
+      ),
       NotificationScreen(),
       ProfileScreen(),
     ];
