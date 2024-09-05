@@ -4,11 +4,11 @@ import 'package:food_recipe_app/03_food_recipe_app/model/recipe.dart';
 import 'package:food_recipe_app/03_food_recipe_app/repository/saved_recipe_repository.dart';
 
 class SavedRecipeViewModel with ChangeNotifier {
-  final SavedRecipeRepository recipeRepository;
+  final SavedRecipeRepository savedRecipeRepository;
 
   SavedRecipeViewModel({
-    required this.recipeRepository,
-  }){
+    required this.savedRecipeRepository,
+  }) {
     getRecipes();
   }
 
@@ -24,7 +24,7 @@ class SavedRecipeViewModel with ChangeNotifier {
     _isLoading = true;
     notifyListeners();
 
-    final result = await recipeRepository.getRecipes();
+    final result = await savedRecipeRepository.getRecipes();
     switch (result) {
       case Success<List<Recipe>>():
         _recipes = result.data;
@@ -34,6 +34,5 @@ class SavedRecipeViewModel with ChangeNotifier {
     }
     _isLoading = false;
     notifyListeners();
-
   }
 }

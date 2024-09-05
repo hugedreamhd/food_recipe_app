@@ -5,10 +5,10 @@ import 'package:food_recipe_app/03_food_recipe_app/repository/recipe_repository.
 import '../../model/recipe.dart';
 
 class SearchRecipesViewModel with ChangeNotifier {
-  final RecipeRepository repository;
+  final RecipeRepository recipeRepository;
 
   SearchRecipesViewModel({
-    required this.repository,
+    required this.recipeRepository,
   }) {
     fetchRecipe();
   }
@@ -21,12 +21,14 @@ class SearchRecipesViewModel with ChangeNotifier {
 
   bool get isLoading => _isLoading;
 
+
+
   //모든 데이터를 검색하고 결과를 알려주는 함수
   void fetchRecipe() async {
     _isLoading = true;
     notifyListeners();
 
-    final result = await repository.fetchRecipe();
+    final result = await recipeRepository.fetchRecipe();
     switch (result) {
       case Success<List<Recipe>>():
         _recipe = result.data;
@@ -40,7 +42,7 @@ class SearchRecipesViewModel with ChangeNotifier {
 
 //데이터 문자열로 검색하는 기능 함수
   void search(String value) async {
-    final result = await repository.fetchRecipe();
+    final result = await recipeRepository.fetchRecipe();
     switch (result) {
       case Success<List<Recipe>>():
         _recipe = result.data
