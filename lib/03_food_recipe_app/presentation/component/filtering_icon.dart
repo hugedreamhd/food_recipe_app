@@ -10,11 +10,11 @@ class FilteringIcon extends StatelessWidget {
     return Container(
       height: 40,
       width: 40,
-      child: Image.asset('asset/images/setting_icon.png'),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: ColorStyles.primary100,
       ),
+      child: Image.asset('asset/images/setting_icon.png'),
     );
   }
 }

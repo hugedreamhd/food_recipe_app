@@ -5,14 +5,12 @@ class CreatorProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
-        Container(
-          child: Row(
-            children: [
+        Row(
+          children: [
 
-            ],
-          ),
+          ],
         )
       ],
     );

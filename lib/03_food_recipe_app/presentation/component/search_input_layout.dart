@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/ui/color_styles.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/ui/text_styles.dart';
-import 'package:go_router/go_router.dart';
 
 class SearchInputLayout extends StatelessWidget {
   final String inputSearch;

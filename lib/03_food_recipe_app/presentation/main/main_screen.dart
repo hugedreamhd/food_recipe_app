@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipe_app/03_food_recipe_app/main_screen_view_model.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/main/main_screen_view_model.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/ui/color_styles.dart';
 import 'package:provider/provider.dart';
 

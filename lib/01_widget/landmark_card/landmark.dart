@@ -9,8 +9,8 @@ class LandmarkCard extends StatelessWidget {
       body: Column(
         children: [
           Image.network('https://picsum.photos/250?image=9'),
-          Text(''),
-          Row(
+          const Text(''),
+          const Row(
             children: [
 
             ],

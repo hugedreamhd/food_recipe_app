@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -38,7 +38,7 @@ class CreatorProfileItem extends StatelessWidget {
                   children: [
                     Container(
 
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
 
                         shape: BoxShape.circle,
                       ),

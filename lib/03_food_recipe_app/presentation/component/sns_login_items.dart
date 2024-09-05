@@ -5,29 +5,27 @@ class SnsLoginItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: 70,
-            height: 70,
-            child: Image.asset(
-              'asset/images/googleIconButton.png',
-            ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(
+          width: 70,
+          height: 70,
+          child: Image.asset(
+            'asset/images/googleIconButton.png',
           ),
-          const SizedBox(
-            width: 5,
+        ),
+        const SizedBox(
+          width: 5,
+        ),
+        SizedBox(
+          width: 70,
+          height: 70,
+          child: Image.asset(
+            'asset/images/faceBookIconButton.png',
           ),
-          SizedBox(
-            width: 70,
-            height: 70,
-            child: Image.asset(
-              'asset/images/faceBookIconButton.png',
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
