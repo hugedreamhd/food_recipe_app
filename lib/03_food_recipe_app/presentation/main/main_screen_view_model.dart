@@ -9,7 +9,7 @@ import 'package:food_recipe_app/03_food_recipe_app/repository/recipe_repository_
 import 'package:food_recipe_app/03_food_recipe_app/repository/saved_recipe_repository_impl.dart';
 import 'package:provider/provider.dart';
 
-import 'data/data_source/recipe/mock_recipe_data_source.dart';
+import '../../data/data_source/recipe/mock_recipe_data_source.dart';
 
 class MainScreenViewModel with ChangeNotifier {
   MainScreenViewModel() {
@@ -25,8 +25,8 @@ class MainScreenViewModel with ChangeNotifier {
                 recipeDataSource: MockSavedRecipeDataSource())),
         child: const SavedRecipeScreen(),
       ),
-      NotificationScreen(),
-      ProfileScreen(),
+      const NotificationScreen(),
+      const ProfileScreen(),
     ];
   }
 

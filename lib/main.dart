@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipe_app/03_food_recipe_app/core/routes.dart';
+import 'package:food_recipe_app/03_food_recipe_app/di/di_setup.dart';
+import 'package:get_it/get_it.dart';
 
+// final getIt = GetIt.instance;
 
 void main() {
+  diSetup();
   runApp(
     const RecipeApp(),
   );
