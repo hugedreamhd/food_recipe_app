@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipe_app/03_food_recipe_app/model/recipe.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/component/creator_profile_item.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/component/recipe_card.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe_detail/saved_recipe_detail_view_model.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +18,6 @@ class SavedRecipeDetailScreen extends StatelessWidget {
     final viewModel = context.watch<SavedRecipeDetailViewModel>();
 
     // 레시피가 아직 로드되지 않았다면 getRecipeById 호출
-    // WidgetsBinding을 사용해 build 완료 후에 getRecipeById 호출
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (viewModel.recipe == null) {
         viewModel.getRecipeById(recipe.id);
@@ -40,11 +40,35 @@ class SavedRecipeDetailScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            if (viewModel.recipe != null) RecipeCard(recipe: viewModel.recipe!),
-          ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              if (viewModel.recipe != null)
+                RecipeCard(
+                  recipe: viewModel.recipe!,
+                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(viewModel.recipe?.foodTitle ?? "레시피 상세"),
+                  SizedBox(width: 10),
+                  Text('(13k Reviews)'),
+                ],
+              ),
+              SizedBox(height: 20),
+              Align(
+                alignment: Alignment.center,
+                child: SizedBox(
+                  height: 100,
+                  child: CreatorProfileItem(
+                    isFollowed: false,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

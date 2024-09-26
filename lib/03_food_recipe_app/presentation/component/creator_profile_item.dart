@@ -48,6 +48,7 @@ class CreatorProfileItem extends StatelessWidget {
     return Scaffold(
         body: SafeArea(
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -70,7 +71,7 @@ class CreatorProfileItem extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      width: 5,
+                      width: 10,
                     ),
                     const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,7 +86,7 @@ class CreatorProfileItem extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(
-                      width: 50,
+                      width: 80,
                     ),
                     MediumButton(
                       title: isFollowed ? 'UnFollow' : 'Follow',
