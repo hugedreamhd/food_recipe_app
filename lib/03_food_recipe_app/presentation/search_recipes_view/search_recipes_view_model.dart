@@ -28,7 +28,7 @@ class SearchRecipesViewModel with ChangeNotifier {
     _isLoading = true;
     notifyListeners();
 
-    final result = await recipeRepository.fetchRecipe();
+    final result = await recipeRepository.getRecipe();
     switch (result) {
       case Success<List<Recipe>>():
         _recipe = result.data;
@@ -36,13 +36,13 @@ class SearchRecipesViewModel with ChangeNotifier {
         notifyListeners();
 
       case Error<List<Recipe>>():
-        print(result.e);
+        Text(result.e);
     }
   }
 
 //데이터 문자열로 검색하는 기능 함수
   void search(String value) async {
-    final result = await recipeRepository.fetchRecipe();
+    final result = await recipeRepository.getRecipe();
     switch (result) {
       case Success<List<Recipe>>():
         _recipe = result.data
@@ -52,7 +52,7 @@ class SearchRecipesViewModel with ChangeNotifier {
         notifyListeners();
 
       case Error<List<Recipe>>():
-        print(result.e);
+        Text(result.e);
     }
   }
 }

@@ -20,7 +20,7 @@ class SavedRecipeViewModel with ChangeNotifier {
 
   bool get isLoading => _isLoading;
 
-  void getRecipes() async {
+  Future<void> getRecipes() async {
     _isLoading = true;
     notifyListeners();
 
@@ -30,7 +30,7 @@ class SavedRecipeViewModel with ChangeNotifier {
         _recipes = result.data;
 
       case Error<List<Recipe>>():
-        print('알수 없는 오류');
+        const Text('레시피를 찾을 수 없습니다');
     }
     _isLoading = false;
     notifyListeners();

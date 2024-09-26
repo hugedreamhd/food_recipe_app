@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipe_app/03_food_recipe_app/model/recipe.dart';
 
-import '../../model/recipe.dart';
 import '../ui/color_styles.dart';
 import '../ui/text_styles.dart';
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-
-import '../../model/recipe.dart';
+import 'package:food_recipe_app/03_food_recipe_app/model/recipe.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/component/recipe_card.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe_detail/saved_recipe_detail_view_model.dart';
+import 'package:provider/provider.dart';
 
 class SavedRecipeDetailScreen extends StatelessWidget {
   final Recipe recipe;
@@ -12,52 +14,31 @@ class SavedRecipeDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = context.watch<SavedRecipeDetailViewModel>();
+
+    // 레시피가 아직 로드되지 않았다면 getRecipeById 호출
+    // WidgetsBinding을 사용해 build 완료 후에 getRecipeById 호출
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (viewModel.recipe == null) {
+        viewModel.getRecipeById(recipe.id);
+      }
+    });
+
+    if (viewModel.isLoading) {
+      return const Center(child: CircularProgressIndicator());
+    } else if (viewModel.recipe == null) {
+      return const Center(child: Text('레시피를 찾을 수 없습니다.'));
+    }
+
     return Scaffold(
-      body: Hero(
-        tag: recipe.imagePath,
+      appBar: AppBar(
+        title: Text(viewModel.recipe?.foodTitle ?? "레시피 상세"),
+      ),
+      body: SafeArea(
         child: Column(
           children: [
-            Card(
-              color: Colors.black,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(6.0),
-                child: Stack(
-                  children: [
-                    Image.network(
-                      recipe.imagePath,
-                      width: double.infinity,
-                      height: 100,
-                      fit: BoxFit.cover,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            // Padding(
-            //   padding: const EdgeInsets.only(
-            //     top: 54.0,
-            //     left: 20.0,
-            //     right: 24.0,
-            //   ),
-            //   child: SingleChildScrollView(
-            //     child: Row(
-            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //       children: [
-            //         IconButton(
-            //           onPressed: () => context.pop(),
-            //           icon: const Icon(Icons.arrow_back),
-            //           padding: EdgeInsets.zero,
-            //         ),
-            //         IconButton(
-            //           onPressed: () {},
-            //           icon: const Icon(Icons.more_horiz),
-            //           padding: EdgeInsets.zero,
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            //RecipePicture(recipe: widget.recipe),
+            if (viewModel.recipe != null)
+            RecipeCard(recipe: viewModel.recipe!),
           ],
         ),
       ),

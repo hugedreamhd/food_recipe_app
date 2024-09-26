@@ -110,32 +110,30 @@ class SignInScreen extends StatelessWidget {
                 const SizedBox(
                   height: 40,
                 ),
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        '''Don't have an account?''',
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      '''Don't have an account?''',
+                      style: TextStyles.smallerTextBold.copyWith(
+                        color: ColorStyles.black,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        context.go('/sign_up');
+                      },
+                      child: Text(
+                        'Sign up',
                         style: TextStyles.smallerTextBold.copyWith(
-                          color: ColorStyles.black,
+                          color: ColorStyles.secondary100,
                         ),
                       ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          context.go('/sign_up');
-                        },
-                        child: Text(
-                          'Sign up',
-                          style: TextStyles.smallerTextBold.copyWith(
-                            color: ColorStyles.secondary100,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 )
               ],
             ),

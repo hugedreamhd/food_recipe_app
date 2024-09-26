@@ -11,12 +11,12 @@ class RecipeRepositoryImpl implements RecipeRepository {
   }) : _recipeDataSource = recipeDataSource;
 
   @override
-  Future<Result<List<Recipe>>> fetchRecipe() async {
+  Future<Result<List<Recipe>>> getRecipe() async {
     try {
       final result = await _recipeDataSource.getRecipes();
       return Result.success(result);
     } catch (e) {
-      return const Result.error('fail load');
+      return const Result.error('레시피를 찾을 수 없습니다');
     }
   }
 }

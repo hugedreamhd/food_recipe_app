@@ -1,5 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:food_recipe_app/03_food_recipe_app/model/recipe.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/main/main_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/main/main_screen_view_model.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe_detail/saved_recipe_detail_screen.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe_detail/saved_recipe_detail_view_model.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/search_recipes_view/search_recipes_view_model.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/sign_in/sign_in_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/sing_up/sign_up_screen.dart';
@@ -41,7 +45,20 @@ final router = GoRouter(
         );
       },
     ),
-
+    GoRoute(
+      path: '/saved_recipe_detail',
+      builder: (context, state) {
+        final recipe = state.extra as Recipe?;
+        if (recipe == null) {
+          return const Center(child: Text('레시피가 없습니다.'));
+        }
+        return ChangeNotifierProvider(
+          create: (_) =>
+              getIt<SavedRecipeDetailViewModel>(),
+          child: SavedRecipeDetailScreen(recipe: recipe),
+        );
+      },
+    ),
     // GoRoute(
     //   path: '/search_recipes',
     //   builder: (context, state) {

@@ -22,11 +22,13 @@ class MainScreenViewModel with ChangeNotifier {
       ChangeNotifierProvider(
         create: (context) => SavedRecipeViewModel(
             savedRecipeRepository: SavedRecipeRepositoryImpl(
-                recipeDataSource: MockSavedRecipeDataSource())),
+                savedRecipeDataSource: MockSavedRecipeDataSource(),
+       ),
+      ),
         child: const SavedRecipeScreen(),
       ),
-      const NotificationScreen(),
-      const ProfileScreen(),
+       const NotificationScreen(),
+       const ProfileScreen(),
     ];
   }
 
