@@ -33,12 +33,17 @@ class SavedRecipeDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(viewModel.recipe?.foodTitle ?? "레시피 상세"),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.more_vert),
+          ),
+        ],
       ),
       body: SafeArea(
         child: Column(
           children: [
-            if (viewModel.recipe != null)
-            RecipeCard(recipe: viewModel.recipe!),
+            if (viewModel.recipe != null) RecipeCard(recipe: viewModel.recipe!),
           ],
         ),
       ),
