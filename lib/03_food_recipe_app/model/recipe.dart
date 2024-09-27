@@ -15,7 +15,7 @@ class Recipe with _$Recipe {
     required String time,
     required double rating,
     required String imagePath,
-    required List<RecipeIngredient> ingredients
+    required List<RecipeIngredient> ingredients,
   }) = _Recipe;
 
   factory Recipe.fromJson(Map<String, Object?> json) => _$RecipeFromJson(json);

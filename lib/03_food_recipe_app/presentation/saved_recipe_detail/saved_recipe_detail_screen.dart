@@ -102,7 +102,14 @@ class SavedRecipeDetailScreen extends StatelessWidget {
                   Text('1 Serve'),
                 ],
               ),
-              IngredientItem(ingredient: ingredient),
+              Column(
+                children: viewModel.recipeIngredients
+                    .map((recipeIngredient) => IngredientItem(
+                          ingredient: recipeIngredient.ingredient,
+                          amount: recipeIngredient.amount,
+                        ))
+                    .toList(),
+              ),
             ],
           ),
         ),

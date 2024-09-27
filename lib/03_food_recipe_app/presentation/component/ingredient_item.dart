@@ -3,10 +3,12 @@ import 'package:food_recipe_app/03_food_recipe_app/model/ingredient.dart';
 
 class IngredientItem extends StatelessWidget {
   final Ingredient ingredient;
+  final num amount;
 
   const IngredientItem({
     super.key,
     required this.ingredient,
+    required this.amount,
   });
 
   @override
@@ -48,7 +50,7 @@ class IngredientItem extends StatelessWidget {
                         fontSize: 20,
                         fontWeight: FontWeight.normal,
                         color: Colors.black26),
-                    ingredient.weight,
+                    '$amount g',
                   ),
                 ],
               ),
