@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipe_app/03_food_recipe_app/presentation/component/medium_button.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/component/small_button.dart';
 
 // void main() {
 //   runApp(const MyApp());
@@ -88,7 +88,7 @@ class CreatorProfileItem extends StatelessWidget {
                     const SizedBox(
                       width: 80,
                     ),
-                    MediumButton(
+                    SmallButton(
                       title: isFollowed ? 'UnFollow' : 'Follow',
                       onTap: followOnTap,
                     ),

@@ -1,3 +1,5 @@
+import 'package:food_recipe_app/03_food_recipe_app/model/ingredient.dart';
+import 'package:food_recipe_app/03_food_recipe_app/model/recipe_ingredient.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'recipe.freezed.dart';
@@ -13,6 +15,7 @@ class Recipe with _$Recipe {
     required String time,
     required double rating,
     required String imagePath,
+    required List<RecipeIngredient> ingredients
   }) = _Recipe;
 
   factory Recipe.fromJson(Map<String, Object?> json) => _$RecipeFromJson(json);

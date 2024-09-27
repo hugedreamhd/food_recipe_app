@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../model/ingredient.dart';
+import '../model/ingredient.dart';
 
 class IngredientItem extends StatelessWidget {
   final Ingredient ingredient;
@@ -48,7 +48,7 @@ class IngredientItem extends StatelessWidget {
                         fontSize: 20,
                         fontWeight: FontWeight.normal,
                         color: Colors.black26),
-                    ingredient.weight,
+                    ingredient.id as String,
                   ),
                 ],
               ),

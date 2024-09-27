@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipe_app/model/ingredient.dart';
+import 'package:food_recipe_app/03_food_recipe_app/model/ingredient.dart';
 
 class IngredientItem extends StatelessWidget {
   final Ingredient ingredient;
@@ -59,3 +59,10 @@ class IngredientItem extends StatelessWidget {
     );
   }
 }
+
+// final ingredient = const Ingredient(
+//   name: 'Apple',
+//   imageUrl:
+//   'https://media.istockphoto.com/id/184276818/ko/%EC%82%AC%EC%A7%84/%EB%A0%88%EB%93%9C-%EC%82%AC%EA%B3%BC%EB%82%98%EB%AC%B4.jpg?s=2048x2048&w=is&k=20&c=ha7OqiGpi8QruIPKcU6rix1-KN_fm210KTHjTFRb4Xk=',
+//   weight: '500g',
+// );

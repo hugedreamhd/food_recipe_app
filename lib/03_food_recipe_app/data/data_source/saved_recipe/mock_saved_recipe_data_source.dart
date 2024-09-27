@@ -21,7 +21,7 @@ class MockSavedRecipeDataSource implements SavedRecipeDataSource {
       rating: 4.0,
       imagePath:
       'https://cdn.pixabay.com/photo/2022/08/25/17/42/spare-ribs-7410914_1280.jpg',
-      id: '4',
+      id: '4', ingredients: [],
     ),
     const Recipe(
       foodTitle: 'spice roasted chicken with flavored rice',
@@ -30,7 +30,7 @@ class MockSavedRecipeDataSource implements SavedRecipeDataSource {
       creator: 'Mark Kelvin',
       time: '20 min',
       rating: 4.0,
-      id: '3',
+      id: '3', ingredients: [],
     ),
     const Recipe(
       foodTitle: 'Spicy fried rice mix chicken bali',
@@ -39,7 +39,7 @@ class MockSavedRecipeDataSource implements SavedRecipeDataSource {
       creator: 'Spicy Nelly',
       time: '20 min',
       rating: 4.0,
-      id: '2',
+      id: '2', ingredients: [],
     ),
     const Recipe(
       foodTitle: 'Lamb chops with fruity',
@@ -48,7 +48,7 @@ class MockSavedRecipeDataSource implements SavedRecipeDataSource {
       creator: 'elden shadler',
       time: '30 min',
       rating: 5.0,
-      id: '1',
+      id: '1', ingredients: [],
     )
   ];
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipe_app/03_food_recipe_app/model/recipe.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/component/creator_profile_item.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/component/ingredient_item.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/component/medium_button.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/component/recipe_card.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe_detail/saved_recipe_detail_view_model.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +24,7 @@ class SavedRecipeDetailScreen extends StatelessWidget {
       if (viewModel.recipe == null) {
         viewModel.getRecipeById(recipe.id);
       }
+      viewModel.toggleButton(true);
     });
 
     if (viewModel.isLoading) {
@@ -58,15 +61,48 @@ class SavedRecipeDetailScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20),
-              Align(
-                alignment: Alignment.center,
-                child: SizedBox(
-                  height: 100,
-                  child: CreatorProfileItem(
-                    isFollowed: false,
-                  ),
+              SizedBox(
+                height: 100,
+                child: CreatorProfileItem(
+                  isFollowed: false,
                 ),
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  MediumButton(
+                    onTap: () {
+                      context
+                          .read<SavedRecipeDetailViewModel>()
+                          .toggleButton(true);
+                    },
+                    title: 'Ingredient',
+                    isSelected: context
+                        .watch<SavedRecipeDetailViewModel>()
+                        .isIngredientSelected,
+                  ),
+                  MediumButton(
+                    onTap: () {
+                      context
+                          .read<SavedRecipeDetailViewModel>()
+                          .toggleButton(false);
+                    },
+                    title: 'Procedure',
+                    isSelected: !context
+                        .watch<SavedRecipeDetailViewModel>()
+                        .isIngredientSelected,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                children: [
+                  Text('1 Serve'),
+                ],
+              ),
+              IngredientItem(ingredient: ingredient),
             ],
           ),
         ),
