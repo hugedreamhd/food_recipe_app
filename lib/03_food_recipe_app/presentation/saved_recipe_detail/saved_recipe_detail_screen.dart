@@ -63,9 +63,11 @@ class SavedRecipeDetailScreen extends StatelessWidget {
               SizedBox(height: 20),
               SizedBox(
                 height: 100,
-                child: CreatorProfileItem(
+                child: Expanded(
+                  child:
+                CreatorProfileItem(
                   isFollowed: false,
-                ),
+                ),)
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

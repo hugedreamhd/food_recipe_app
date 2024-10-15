@@ -46,59 +46,52 @@ class CreatorProfileItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 50,
+              height: 50,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: NetworkImage(
+                    'https://cdn.pixabay.com/photo/2015/05/20/14/23/baby-775503_1280.jpg',
+                  ),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Text('Laura wilson'),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      width: 50,
-                      height: 50,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          image: NetworkImage(
-                            'https://cdn.pixabay.com/photo/2015/05/20/14/23/baby-775503_1280.jpg',
-                          ),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Laura wilson'),
-                        Row(
-                          children: [
-                            Icon(Icons.location_on),
-                            Text('Lagos, Nigeria'),
-                          ],
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      width: 80,
-                    ),
-                    SmallButton(
-                      title: isFollowed ? 'UnFollow' : 'Follow',
-                      onTap: followOnTap,
-                    ),
+                    Icon(Icons.location_on),
+                    Text('Lagos, Nigeria'),
                   ],
                 ),
               ],
             ),
-          ),
-        ],
+            Expanded(
+              child: const SizedBox(
+                width: 20,
+              ),
+            ),
+            SmallButton(
+              title: isFollowed ? 'UnFollow' : 'Follow',
+              onTap: followOnTap,
+            ),
+          ],
+        ),
       ),
-    ));
+    );
   }
 }
