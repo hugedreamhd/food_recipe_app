@@ -68,11 +68,11 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
               height: 16,
             ),
             Expanded(
-              child: (viewModel.isLoading)
+              child: (viewModel.state.isLoading)
                   ? const Center(
                       child: CircularProgressIndicator(),
                     )
-                  : (viewModel.recipe.isEmpty)
+                  : (viewModel.state.recipe.isEmpty)
                       ? const Center(child: Text('No recipe found'))
                       : GridView.builder(
                           gridDelegate:
@@ -81,9 +81,9 @@ class _SearchRecipesScreenState extends State<SearchRecipesScreen> {
                             mainAxisSpacing: 24,
                             crossAxisSpacing: 24,
                           ),
-                          itemCount: viewModel.recipe.length,
+                          itemCount: viewModel.state.recipe.length,
                           itemBuilder: (context, index) {
-                            final recipe = viewModel.recipe[index];
+                            final recipe = viewModel.state.recipe[index];
                             return SearchResultImage(recipe: recipe);
                           },
                         ),

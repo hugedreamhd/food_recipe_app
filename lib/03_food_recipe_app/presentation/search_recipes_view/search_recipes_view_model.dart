@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:food_recipe_app/03_food_recipe_app/core/result.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/search_recipes_view/search_recipes_ui_state.dart';
 import 'package:food_recipe_app/03_food_recipe_app/repository/recipe_repository.dart';
 
 import '../../model/recipe.dart';
@@ -13,26 +14,20 @@ class SearchRecipesViewModel with ChangeNotifier {
     fetchRecipe();
   }
 
-  List<Recipe> _recipe = [];
+  SearchRecipesUiState _state = SearchRecipesUiState();
 
-  List<Recipe> get recipe => _recipe;
-
-  bool _isLoading = false;
-
-  bool get isLoading => _isLoading;
-
-
+  SearchRecipesUiState get state => _state;
 
   //모든 데이터를 검색하고 결과를 알려주는 함수
   void fetchRecipe() async {
-    _isLoading = true;
+    _state = state.copyWith(isLoading: true);
     notifyListeners();
 
     final result = await recipeRepository.getRecipe();
     switch (result) {
       case Success<List<Recipe>>():
-        _recipe = result.data;
-        _isLoading = false;
+        _state = state.copyWith(recipe: result.data);
+        _state = state.copyWith(isLoading: false);
         notifyListeners();
 
       case Error<List<Recipe>>():
@@ -45,10 +40,12 @@ class SearchRecipesViewModel with ChangeNotifier {
     final result = await recipeRepository.getRecipe();
     switch (result) {
       case Success<List<Recipe>>():
-        _recipe = result.data
-            .where(
-                (e) => e.foodTitle.toLowerCase().contains(value.toLowerCase()))
-            .toList();
+        _state = state.copyWith(
+          recipe: result.data
+              .where((e) =>
+                  e.foodTitle.toLowerCase().contains(value.toLowerCase()))
+              .toList(),
+        );
         notifyListeners();
 
       case Error<List<Recipe>>():
