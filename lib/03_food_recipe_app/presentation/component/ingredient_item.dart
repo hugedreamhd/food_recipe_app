@@ -16,7 +16,7 @@ class IngredientItem extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+          padding: const EdgeInsets.all(5),
           child: Container(
             width: double.infinity,
             height: 100,

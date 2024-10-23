@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_recipe_app/03_food_recipe_app/data/data_source/saved_recipe/mock_saved_recipe_data_source.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/home/home_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/notification/notification_screen.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/notification/notification_view_model.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/profile/profile_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe/saved_recipe_screen.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe/saved_recipe_view_model.dart';
@@ -27,7 +28,10 @@ class MainScreenViewModel with ChangeNotifier {
       ),
         child: const SavedRecipeScreen(),
       ),
-       const NotificationScreen(),
+      ChangeNotifierProvider(
+          create: (context) => NotificationViewModel(),
+        child: const NotificationScreen(),
+      ),
        const ProfileScreen(),
     ];
   }

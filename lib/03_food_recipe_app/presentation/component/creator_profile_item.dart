@@ -80,8 +80,8 @@ class CreatorProfileItem extends StatelessWidget {
                 ),
               ],
             ),
-            Expanded(
-              child: const SizedBox(
+            const Expanded(
+              child: SizedBox(
                 width: 20,
               ),
             ),

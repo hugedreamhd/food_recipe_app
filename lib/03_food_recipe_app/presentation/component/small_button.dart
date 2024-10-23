@@ -5,8 +5,14 @@ import 'package:food_recipe_app/03_food_recipe_app/presentation/ui/text_styles.d
 class SmallButton extends StatefulWidget {
   final String title;
   final void Function()? onTap;
+  final ButtonStyle? style; // 추가된 부분
 
-  const SmallButton({super.key, required this.onTap, required this.title});
+  const SmallButton({
+    super.key,
+    required this.onTap,
+    required this.title,
+    this.style, // 추가된 부분
+  });
 
   @override
   State<SmallButton> createState() => _SmallButtonState();
@@ -18,7 +24,6 @@ class _SmallButtonState extends State<SmallButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      // onTap: widget.onTap,
       onTapDown: (_) {
         setState(() {
           _isPressed = true;
@@ -39,20 +44,19 @@ class _SmallButtonState extends State<SmallButton> {
         width: 100,
         height: 40,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: _isPressed ? ColorStyles.gray4 : ColorStyles.primary100),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child: Text(
-                widget.title,
-                style: TextStyles.mediumTextBold.copyWith(
-                  color: ColorStyles.white,
-                ),
-              ),
+          borderRadius: BorderRadius.circular(10),
+          color: widget.style?.backgroundColor?.resolve({}) ?? ColorStyles.primary100,
+          border: Border.all(
+            color: widget.style?.side?.resolve({})?.color ?? Colors.white,
+          ),
+        ),
+        child: Center(
+          child: Text(
+            widget.title,
+            style: TextStyles.mediumTextBold.copyWith(
+              color: widget.style?.foregroundColor?.resolve({}) ?? ColorStyles.white,
             ),
-          ],
+          ),
         ),
       ),
     );
