@@ -13,7 +13,7 @@ food_recipe_app
   - 알림이 가면 읽었는지 체크를 합니다
 
 
-<div style="display: flex; justify-content: center; gap: 40px;">
+<div style="display: flex; justify-content: center; gap: 100px;">
   <img src="https://github.com/user-attachments/assets/760088c5-ff3a-42ff-af25-055fc72a1295" width="200" />
   <img src="https://github.com/user-attachments/assets/d20e7b20-f380-41ec-9195-994fce43d947" width="200" />
   <img src="https://github.com/user-attachments/assets/dedb0f33-ec3b-4047-9043-77d9b6649711" width="200" />
