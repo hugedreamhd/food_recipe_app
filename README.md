@@ -9,9 +9,9 @@
   - 알림이 가면 읽었는지 체크를 합니다
 
 <div style="display: flex; justify-content: center;">
-    <img src="https://github.com/user-attachments/assets/024596df-0923-4cfb-bc3a-eda07729a051" width="150" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://github.com/user-attachments/assets/5d06234c-fb82-4d9e-b72a-7a704994d0d0" width="150" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://github.com/user-attachments/assets/3d618464-7446-4545-9598-e6dcade491dc" width="150" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://github.com/user-attachments/assets/da5cafc2-c8ec-48fb-9e09-b13aa9a311c6" width="150" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://github.com/user-attachments/assets/3a475fe9-a78a-4ed7-8d97-324481f8d4c4" width="150" />
+    <img src="https://github.com/user-attachments/assets/024596df-0923-4cfb-bc3a-eda07729a051" width="200" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="https://github.com/user-attachments/assets/5d06234c-fb82-4d9e-b72a-7a704994d0d0" width="200" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="https://github.com/user-attachments/assets/3d618464-7446-4545-9598-e6dcade491dc" width="200" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="https://github.com/user-attachments/assets/da5cafc2-c8ec-48fb-9e09-b13aa9a311c6" width="200" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img src="https://github.com/user-attachments/assets/3a475fe9-a78a-4ed7-8d97-324481f8d4c4" width="200" />
 </div>
