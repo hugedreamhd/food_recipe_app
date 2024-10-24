@@ -5,6 +5,7 @@ import 'package:food_recipe_app/03_food_recipe_app/presentation/component/ingred
 import 'package:food_recipe_app/03_food_recipe_app/presentation/component/medium_button.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/component/recipe_card.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe_detail/saved_recipe_detail_view_model.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/ui/color_styles.dart';
 import 'package:provider/provider.dart';
 
 class SavedRecipeDetailScreen extends StatelessWidget {
@@ -35,16 +36,69 @@ class SavedRecipeDetailScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(viewModel.recipe?.foodTitle ?? "레시피 상세"),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.more_vert),
+          PopupMenuButton(
+            constraints: BoxConstraints(minWidth: 60, maxWidth: 150),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            popUpAnimationStyle: AnimationStyle(
+              curve: Easing.emphasizedDecelerate,
+              duration: const Duration(seconds: 2),
+            ),
+            icon: const Icon(Icons.more_vert),
+            iconSize: 30,
+            itemBuilder: (BuildContext context) {
+              return <PopupMenuEntry>[
+                PopupMenuItem(
+                  onTap: () {},
+                  //탭했을 때 호출
+                  child: ListTile(
+                    leading: Image.asset(
+                      'asset/images/share.png',
+                    ),
+                    title: const Text('Share'),
+                  ),
+                ),
+                PopupMenuItem(
+                  onTap: () {},
+                  //탭했을 때 호출
+                  child: ListTile(
+                    leading: Image.asset(
+                      'asset/images/star.png',
+                    ),
+                    title: Text('Rate Recipe'),
+                  ),
+                ),
+                PopupMenuItem(
+                  onTap: () {},
+                  //탭했을 때 호출
+                  child: ListTile(
+                    leading: Image.asset(
+                      'asset/images/message.png',
+                    ),
+                    title: const Text('Review'),
+                  ),
+                ),
+                PopupMenuItem(
+                  onTap: () {},
+                  //탭했을 때 호출
+                  child: ListTile(
+                    leading: Image.asset(
+                      'asset/images/active_black.png',
+                      // width: 20,
+                      // height: 20,
+                    ),
+                    title: const Text('Unsaved'),
+                  ),
+                ),
+              ];
+            },
           ),
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -56,19 +110,16 @@ class SavedRecipeDetailScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(viewModel.recipe?.foodTitle ?? "레시피 상세"),
-                  SizedBox(width: 10),
-                  Text('(13k Reviews)'),
+                  const SizedBox(width: 10),
+                  const Text('(13k Reviews)'),
                 ],
               ),
-              SizedBox(height: 20),
-              SizedBox(
-                height: 100,
-                child: Expanded(
-                  child:
-                CreatorProfileItem(
-                  isFollowed: false,
-                ),)
-              ),
+              const SizedBox(height: 20),
+              const SizedBox(
+                  height: 100,
+                  child: CreatorProfileItem(
+                    isFollowed: false,
+                  )),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -96,20 +147,21 @@ class SavedRecipeDetailScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Row(
-                children: [
-                  Text('1 Serve'),
-                ],
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text('1 Serve'),
               ),
               Column(
                 children: viewModel.recipeIngredients
-                    .map((recipeIngredient) => IngredientItem(
-                          ingredient: recipeIngredient.ingredient,
-                          amount: recipeIngredient.amount,
-                        ))
+                    .map(
+                      (recipeIngredient) => IngredientItem(
+                        ingredient: recipeIngredient.ingredient,
+                        amount: recipeIngredient.amount,
+                      ),
+                    )
                     .toList(),
               ),
             ],
