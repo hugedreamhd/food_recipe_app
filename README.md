@@ -19,5 +19,6 @@ food_recipe_app
 </div>
 <div style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
   <img src="https://github.com/user-attachments/assets/d20e7b20-f380-41ec-9195-994fce43d947" width="400" />
-  <img src="https://github.com/user-attachments/assets/509e2bf7-de7d4f5a-b4be-e18712b7c945" width="400" />
+  <img src="https://github.com/user-attachments/assets/f0e21443-9d5a-4ae9-b4df-fae9d11d7403" width="400" />
 </div>
+
