@@ -14,11 +14,11 @@ food_recipe_app
 
 
 <div style="display: flex; justify-content: center; gap: 10px;">
-  <img src="https://github.com/user-attachments/assets/760088c5-ff3a-42ff-af25-055fc72a1295" width="400" />
-  <img src="https://github.com/user-attachments/assets/dedb0f33-ec3b-4047-9043-77d9b6649711" width="400" />
+  <img src="https://github.com/user-attachments/assets/760088c5-ff3a-42ff-af25-055fc72a1295" width="300" />
+  <img src="https://github.com/user-attachments/assets/dedb0f33-ec3b-4047-9043-77d9b6649711" width="300" />
 </div>
 <div style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
-  <img src="https://github.com/user-attachments/assets/d20e7b20-f380-41ec-9195-994fce43d947" width="400" />
-  <img src="https://github.com/user-attachments/assets/f0e21443-9d5a-4ae9-b4df-fae9d11d7403" width="400" />
+  <img src="https://github.com/user-attachments/assets/d20e7b20-f380-41ec-9195-994fce43d947" width="300" />
+  <img src="https://github.com/user-attachments/assets/f0e21443-9d5a-4ae9-b4df-fae9d11d7403" width="300" />
 </div>
 
