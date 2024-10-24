@@ -2,15 +2,13 @@
 
 food_recipe_app
 
-## Getting Started
+# 음식 레시피 앱
 
-This project is a starting point for a Flutter application.
+- 앱 설명
 
-A few resources to get you started if this is your first Flutter project:
+  원하는 음식 레시피를 검색해서 요리에 필요한 재료를 체크하고 즐겨찾기 및 알림 체크
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 앱 기능
+  - 텍스트필드에 레시피를 검색 할 수 있습니다
+  - 알림이 가면 읽었는지 체크를 합니다
+  
