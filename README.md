@@ -11,6 +11,7 @@ food_recipe_app
 - 앱 기능
   - 텍스트필드에 레시피를 검색 할 수 있습니다
   - 알림이 가면 읽었는지 체크를 합니다
+
 <div style="display: inline-block; margin-right: 20px;">
   <img src="https://github.com/user-attachments/assets/024596df-0923-4cfb-bc3a-eda07729a051" width="150" />
 </div>
