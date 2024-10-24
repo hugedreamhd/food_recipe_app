@@ -1,7 +1,3 @@
-# food_recipe_app
-
-food_recipe_app
-
 # 음식 레시피 앱
 
 - 앱 설명
