@@ -13,5 +13,11 @@ food_recipe_app
   - 알림이 가면 읽었는지 체크를 합니다
 
 
-![Image](https://github.com/user-attachments/assets/760088c5-ff3a-42ff-af25-055fc72a1295) ![Image](https://github.com/user-attachments/assets/dedb0f33-ec3b-4047-9043-77d9b6649711)  
-![Image](https://github.com/user-attachments/assets/d20e7b20-f380-41ec-9195-994fce43d947) ![Image](https://github.com/user-attachments/assets/509e2bf7-de7d4f5a-b4be-e18712b7c945)
+<div style="display: flex; justify-content: center; gap: 10px;">
+  <img src="https://github.com/user-attachments/assets/760088c5-ff3a-42ff-af25-055fc72a1295" width="400" />
+  <img src="https://github.com/user-attachments/assets/dedb0f33-ec3b-4047-9043-77d9b6649711" width="400" />
+</div>
+<div style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
+  <img src="https://github.com/user-attachments/assets/d20e7b20-f380-41ec-9195-994fce43d947" width="400" />
+  <img src="https://github.com/user-attachments/assets/509e2bf7-de7d4f5a-b4be-e18712b7c945" width="400" />
+</div>
