@@ -27,6 +27,25 @@ class SavedRecipeDetailViewModel with ChangeNotifier {
 
   bool get isIngredientSelected => _isIngredientSelected;
 
+  int _rating = 0;
+
+  int get rating => _rating;
+
+  void setRating(int rating) {
+    _rating = rating;
+    notifyListeners();
+  }
+
+  void resetRating() {
+    _rating = 0;
+    notifyListeners();
+  }
+
+  void sendRating() {
+    _rating = rating;
+    notifyListeners();
+  }
+
   void toggleButton(bool isIngredient) {
     _isIngredientSelected = isIngredient;
     notifyListeners();

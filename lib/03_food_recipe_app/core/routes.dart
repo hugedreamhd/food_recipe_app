@@ -14,7 +14,7 @@ import '../di/di_setup.dart';
 import '../presentation/search_recipes_view/search_recipes_screen.dart';
 
 final router = GoRouter(
-  initialLocation: '/main_screen',
+  initialLocation: '/',
   routes: <RouteBase>[
     GoRoute(
       path: '/',
@@ -52,13 +52,13 @@ final router = GoRouter(
         if (recipe == null) {
           return const Center(child: Text('레시피가 없습니다.'));
         }
-        return ChangeNotifierProvider(
-          create: (_) =>
-              getIt<SavedRecipeDetailViewModel>(),
-          child: SavedRecipeDetailScreen(recipe: recipe),
+        return ChangeNotifierProvider<SavedRecipeDetailViewModel>(
+          create: (_) => getIt<SavedRecipeDetailViewModel>(),
+          builder: (context, child) => SavedRecipeDetailScreen(recipe: recipe),
         );
       },
     ),
+
     // GoRoute(
     //   path: '/search_recipes',
     //   builder: (context, state) {

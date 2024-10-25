@@ -3,9 +3,9 @@ import 'package:food_recipe_app/03_food_recipe_app/model/recipe.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/component/creator_profile_item.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/component/ingredient_item.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/component/medium_button.dart';
+import 'package:food_recipe_app/03_food_recipe_app/presentation/component/rate_recipe.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/component/recipe_card.dart';
 import 'package:food_recipe_app/03_food_recipe_app/presentation/saved_recipe_detail/saved_recipe_detail_view_model.dart';
-import 'package:food_recipe_app/03_food_recipe_app/presentation/ui/color_styles.dart';
 import 'package:provider/provider.dart';
 
 class SavedRecipeDetailScreen extends StatelessWidget {
@@ -38,7 +38,7 @@ class SavedRecipeDetailScreen extends StatelessWidget {
       appBar: AppBar(
         actions: [
           PopupMenuButton(
-            constraints: BoxConstraints(minWidth: 60, maxWidth: 150),
+            constraints: const BoxConstraints(minWidth: 60, maxWidth: 150),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
@@ -61,13 +61,38 @@ class SavedRecipeDetailScreen extends StatelessWidget {
                   ),
                 ),
                 PopupMenuItem(
-                  onTap: () {},
-                  //탭했을 때 호출
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      barrierDismissible: true,
+                      builder: (BuildContext dialogcontext) {
+                        final viewModel =
+                            dialogcontext.watch<SavedRecipeDetailViewModel>();
+                        return AlertDialog(
+                          content: RateRecipe(
+                              rating: viewModel.rating,
+                              onTap: (rating) {
+                                viewModel.setRating(rating);
+                              },
+                              onSend: () {
+                                viewModel.sendRating();
+                                Navigator.of(dialogcontext).pop();
+                              }),
+                          backgroundColor: Colors.transparent,
+                          contentPadding: EdgeInsets.zero,
+                        );
+                      },
+                    ).then((_) {
+//팝업이 닫힐 때 rating 초기화
+                      context.read<SavedRecipeDetailViewModel>().resetRating();
+                    });
+                    //탭했을 때 호출
+                  },
                   child: ListTile(
                     leading: Image.asset(
                       'asset/images/star.png',
                     ),
-                    title: Text('Rate Recipe'),
+                    title: const Text('Rate Recipe'),
                   ),
                 ),
                 PopupMenuItem(
