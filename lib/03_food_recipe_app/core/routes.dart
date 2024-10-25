@@ -54,7 +54,9 @@ final router = GoRouter(
         }
         return ChangeNotifierProvider<SavedRecipeDetailViewModel>(
           create: (_) => getIt<SavedRecipeDetailViewModel>(),
-          child: SavedRecipeDetailScreen(recipe: recipe),
+          child: Builder(
+            builder: (context) => SavedRecipeDetailScreen(recipe: recipe),
+          ),
         );
       },
     ),
