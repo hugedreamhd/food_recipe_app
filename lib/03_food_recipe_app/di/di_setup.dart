@@ -39,9 +39,9 @@ void diSetup() {
     () => MainScreenViewModel(),
   );
 
-  getIt.registerFactory(
+  getIt.registerFactory<SavedRecipeDetailViewModel>(
     () => SavedRecipeDetailViewModel(
-        savedRecipeRepository: getIt(),
+      savedRecipeRepository: getIt(),
     ),
   );
 }

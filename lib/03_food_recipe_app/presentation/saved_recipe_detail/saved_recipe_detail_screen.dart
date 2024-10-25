@@ -65,33 +65,33 @@ class SavedRecipeDetailScreen extends StatelessWidget {
                     showDialog(
                       context: context,
                       barrierDismissible: true,
-                      builder: (BuildContext dialogcontext) {
-                        final viewModel =
-                            dialogcontext.watch<SavedRecipeDetailViewModel>();
-                        return AlertDialog(
-                          content: RateRecipe(
-                              rating: viewModel.rating,
-                              onTap: (rating) {
-                                viewModel.setRating(rating);
-                              },
-                              onSend: () {
-                                viewModel.sendRating();
-                                Navigator.of(dialogcontext).pop();
-                              }),
-                          backgroundColor: Colors.transparent,
-                          contentPadding: EdgeInsets.zero,
+                      builder: (BuildContext dialogContext) {
+                        return Builder(
+                          builder: (context) {
+                            final viewModel = context.watch<SavedRecipeDetailViewModel>();
+                            return AlertDialog(
+                              content: RateRecipe(
+                                rating: viewModel.rating,
+                                onTap: (rating) {
+                                  viewModel.setRating(rating);
+                                },
+                                onSend: () {
+                                  viewModel.sendRating();
+                                  Navigator.of(dialogContext).pop();
+                                },
+                              ),
+                              backgroundColor: Colors.transparent,
+                              contentPadding: EdgeInsets.zero,
+                            );
+                          },
                         );
                       },
                     ).then((_) {
-//팝업이 닫힐 때 rating 초기화
                       context.read<SavedRecipeDetailViewModel>().resetRating();
                     });
-                    //탭했을 때 호출
                   },
                   child: ListTile(
-                    leading: Image.asset(
-                      'asset/images/star.png',
-                    ),
+                    leading: Image.asset('asset/images/star.png'),
                     title: const Text('Rate Recipe'),
                   ),
                 ),

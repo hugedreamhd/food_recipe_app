@@ -54,23 +54,9 @@ final router = GoRouter(
         }
         return ChangeNotifierProvider<SavedRecipeDetailViewModel>(
           create: (_) => getIt<SavedRecipeDetailViewModel>(),
-          builder: (context, child) => SavedRecipeDetailScreen(recipe: recipe),
+          child: SavedRecipeDetailScreen(recipe: recipe),
         );
       },
     ),
-
-    // GoRoute(
-    //   path: '/search_recipes',
-    //   builder: (context, state) {
-    //     return ChangeNotifierProvider(
-    //       create: (context) => SearchRecipesViewModel(
-    //         recipeRepository: RecipeRepositoryImpl(
-    //           recipeDataSource: MockRecipeDataSource(),
-    //         ),
-    //       ),
-    //       child: const SearchRecipesScreen(),
-    //     );
-    //   },
-    // ),
   ],
 );
